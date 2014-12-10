@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  - $Id$
+  -
+  - Copyright (c) 2010, Autonomy Systems Ltd.
+  -
+  - Last modified by $Author$ On $Date$
+  -->
+
+<configuration>
+
+  <appender class="ch.qos.logback.core.ConsoleAppender" name="RootConsoleAppender">
+    <layout class="ch.qos.logback.classic.PatternLayout">
+      <pattern>%d{HH:mm:ss}, %p, %c{20}\(%L\): %m%n</pattern>
+    </layout>
+  </appender>
+
+  <appender class="ch.qos.logback.core.FileAppender" name="File">
+    <File>target/integration/integration.log</File>
+    <Append>false</Append>
+    <layout class="ch.qos.logback.classic.PatternLayout">
+      <pattern>%d{HH:mm:ss}, %p, %c{20}\(%L\): %m%n</pattern>
+    </layout>
+  </appender>
+
+  <logger additivity="false" name="com.autonomy.test">
+    <level value="debug" />
+    <appender-ref ref="RootConsoleAppender" />
+    <appender-ref ref="File" />
+  </logger>
+
+  <logger additivity="false" name="com.autonomy.aci.client">
+    <level value="debug" />
+    <appender-ref ref="RootConsoleAppender" />
+    <appender-ref ref="File" />
+  </logger>
+
+  <logger additivity="false" name="com.autonomy.nonaci">
+    <level value="debug" />
+    <appender-ref ref="RootConsoleAppender" />
+    <appender-ref ref="File" />
+  </logger>
+  
+  <logger additivity="false" name="com.autonomy">
+    <level value="trace" />
+    <appender-ref ref="RootConsoleAppender" />
+    <appender-ref ref="File" />
+  </logger>
+
+  <root>
+    <level value="info" />
+    <appender-ref ref="RootConsoleAppender" />
+    <appender-ref ref="File" />
+  </root>
+
+</configuration>

@@ -1,0 +1,56 @@
+#DREREFERENCE DREREF-1
+#DREFIELD COLOR="RED"
+#DREFIELD DATABASE="News"
+#DREFIELD DATE="2010/05/15"
+#DREFIELD DRETITLE="Document Title 1"
+#DREFIELD MATCH_FIELD="!"£$%^&*()-_+=[{]}: ;@'#~<,>.?/\|¬`¦€"
+#DREFIELD NUMERIC_FIELD="100.7"
+#DRECONTENT
+This is Spot. Spot likes to run. See Spot run. Run Spot, run.
+#DREENDDOC
+
+#DREREFERENCE DREREF-2
+#DREFIELD COLOR="BLUE"
+#DREFIELD DATABASE="News"
+#DREFIELD DATE="2010/05/12"
+#DREFIELD DRETITLE="Document Title 2"
+#DREFIELD MATCH_FIELD="ABC DEF 123"
+#DREFIELD NUMERIC_FIELD="93.2"
+#DREFIELD REFERENCE_FIELD=" !"£$%^&*()-_+=[{]}: ;@'#~<,>.?/\|¬`¦€ "
+#DRECONTENT
+Spot likes to jump. See Spot jump. Jump Spot, jump.
+#DREENDDOC
+
+#DREREFERENCE DREREF-3
+#DREFIELD COLOR="GREEN"
+#DREFIELD DATABASE="Archive"
+#DREFIELD DATE="2010/05/16"
+#DREFIELD DRETITLE="Document Title 3"
+#DREFIELD REFERENCE_FIELD="  !"£$%^&*()-_+=[{]}: ;@'#~<,>.?/\|¬`¦€ "
+#DREFIELD MATCH_FIELD="ABC DEF 123"
+#DREFIELD MATCH_FIELD="ABC DEF 123"
+#DREFIELD MATCH_FIELD="DEF GHI 1,2,3,4%2C"
+#DREFIELD NUMERIC_FIELD="0100.70"
+#DRECONTENT
+Spot has a balloon. A big balloon. A big, red balloon.
+#DREENDDOC
+
+#DREREFERENCE DREREF-DUP
+#DRESECTION 0
+#DREFIELD COLOR="YELLOW"
+#DREFIELD DATABASE="News"
+#DREFIELD DATE="2010/05/11"
+#DREFIELD DRETITLE="Sectioned Document Title"
+#DREFIELD NUMERIC_FIELD="6"
+#DREFIELD REFERENCE_FIELD="  !"£$%^&*()-_+=[{]}: ;@'#~<,>.?/\|¬`¦€  "
+#DRECONTENT
+Where is Spot's big, red balloon? It's not in the house. It's under the bridge. It's not behind the hippo. It's caught in the tree!
+#DREENDDOC
+
+#DREREFERENCE DREREF-DUP
+#DRESECTION 1
+#DRECONTENT
+Spot is starting to annoy me. I've called the vet.
+
+THE END
+#DREENDDOC
