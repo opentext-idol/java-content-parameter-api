@@ -40,23 +40,22 @@
         </configuration>
       </plugin>
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-toolchains-plugin</artifactId>
-        <version>1.0</version>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>animal-sniffer-maven-plugin</artifactId>
+        <version>1.14</version>
         <executions>
           <execution>
             <goals>
-              <goal>toolchain</goal>
+              <goal>check</goal>
             </goals>
           </execution>
         </executions>
         <configuration>
-          <toolchains>
-            <jdk>
-              <version>1.6</version>
-              <vendor>sun</vendor>
-            </jdk>
-          </toolchains>
+          <signature>
+              <groupId>org.codehaus.mojo.signature</groupId>
+              <artifactId>java16</artifactId>
+              <version>1.1</version>
+          </signature>
         </configuration>
       </plugin>
     </plugins>
