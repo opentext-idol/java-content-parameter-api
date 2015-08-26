@@ -1,78 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<!--
-  - $Id$
-  - Author(s): darrelln, boba
-  - Copyright (c) 2011, Autonomy Systems Ltd.
-  - Description:
-  - Last modified by $Author$ On $Date$
-  -->
-
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-  <modelVersion>4.0.0</modelVersion>
+    <modelVersion>4.0.0</modelVersion>
 
-  <parent>
-    <groupId>com.hp.autonomy</groupId>
-    <artifactId>foss-master-pom</artifactId>
-    <version>1.0.1</version>
-  </parent>
+    <parent>
+        <groupId>com.hp.autonomy</groupId>
+        <artifactId>foss-master-pom</artifactId>
+        <version>1.0.1</version>
+    </parent>
 
-  <groupId>com.autonomy.aci.content</groupId>
-  <artifactId>autonomy-content-parameter-api</artifactId>
-  <version>1.2.0-SNAPSHOT</version>
-  <packaging>jar</packaging>
+    <groupId>com.autonomy.aci.content</groupId>
+    <artifactId>autonomy-content-parameter-api</artifactId>
+    <version>1.2.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
-  <name>Content Parameter API</name>
-  <inceptionYear>2009</inceptionYear>
+    <name>Content Parameter API</name>
+    <inceptionYear>2009</inceptionYear>
 
-  <properties>
-      <java.version>1.6</java.version>
-  </properties>
+    <properties>
+        <java.version>1.6</java.version>
+    </properties>
 
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>animal-sniffer-maven-plugin</artifactId>
-        <version>1.14</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>check</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <signature>
-              <groupId>org.codehaus.mojo.signature</groupId>
-              <artifactId>java16</artifactId>
-              <version>1.1</version>
-          </signature>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>animal-sniffer-maven-plugin</artifactId>
+                <version>1.14</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <signature>
+                        <groupId>org.codehaus.mojo.signature</groupId>
+                        <artifactId>java16</artifactId>
+                        <version>1.1</version>
+                    </signature>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
-  <dependencies>
-    <dependency>
-      <groupId>com.autonomy.aci.client</groupId>
-      <artifactId>autonomy-aci-client-api</artifactId>
-      <version>4.1.3</version>
-      <scope>compile</scope>
-    </dependency>
-      <dependency>
-          <groupId>junit</groupId>
-          <artifactId>junit</artifactId>
-          <version>4.12</version>
-      </dependency>
-      <dependency>
-          <groupId>org.hamcrest</groupId>
-          <artifactId>hamcrest-all</artifactId>
-          <version>1.3</version>
-      </dependency>
-  </dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>com.autonomy.aci.client</groupId>
+            <artifactId>autonomy-aci-client-api</artifactId>
+            <version>4.1.3</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-all</artifactId>
+            <version>1.3</version>
+        </dependency>
+    </dependencies>
 
 </project>
