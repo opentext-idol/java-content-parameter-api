@@ -6,10 +6,10 @@
 package com.autonomy.aci.content.fieldtext;
 
 import com.autonomy.aci.content.internal.InternalUtils;
+import org.apache.commons.lang.Validate;
 
 import java.util.Arrays;
-
-import org.apache.commons.lang.Validate;
+import java.util.Collections;
 
 /**
  *
@@ -36,7 +36,7 @@ public class NOTEQUAL extends Specifier {
     }
 
     public NOTEQUAL(final String field, final Iterable<? extends Number> values) {
-        this(Arrays.asList(field), values);
+        this(Collections.singletonList(field), values);
     }
 
     public <T extends Number> NOTEQUAL(final String[] fields, final T value, final T... values) {

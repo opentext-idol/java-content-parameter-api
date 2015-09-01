@@ -5,14 +5,14 @@
 
 package com.autonomy.aci.content.fieldtext;
 
+import org.junit.Test;
+
 import java.util.Arrays;
 import java.util.Collections;
 
-import org.junit.Test;
-
-import static com.autonomy.aci.content.fieldtext.EMPTY.*;
-
-import static org.junit.Assert.*;
+import static com.autonomy.aci.content.fieldtext.EMPTY.EMPTY;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Tests for the <TT>EMPTY</tt> class.
@@ -26,7 +26,7 @@ public class EMPTYTest {
     public void testString() {
         final EMPTY empty = new EMPTY("ns:field");
         assertEquals("String constructor", "EMPTY{}:ns%3Afield", empty.toString());
-        assertEquals("String - getFields", Arrays.asList("ns:field"), empty.getFields());
+        assertEquals("String - getFields", Collections.singletonList("ns:field"), empty.getFields());
         assertTrue("String - getValues", empty.getValues().isEmpty());
     }
 

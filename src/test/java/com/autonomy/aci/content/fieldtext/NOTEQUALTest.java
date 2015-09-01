@@ -5,15 +5,15 @@
 
 package com.autonomy.aci.content.fieldtext;
 
+import org.junit.Test;
+
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Collections;
 
-import org.junit.Test;
-
-import static com.autonomy.aci.content.fieldtext.NOTEQUAL.*;
-
-import static org.junit.Assert.*;
+import static com.autonomy.aci.content.fieldtext.NOTEQUAL.NOTEQUAL;
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Tests for the <tt>NOTEQUAL</tt> class.
@@ -187,7 +187,7 @@ public class NOTEQUALTest {
         assertEquals("NOTEQUAL{1,2,3}:field", equal.toString());
         assertEquals(Arrays.asList("1", "2", "3"), equal.getValues());
         assertArrayEquals(new double[]{1.0, 2.0, 3.0}, equal.getNumericValues(), 0);
-        assertEquals(Arrays.asList("field"), equal.getFields());
+        assertEquals(Collections.singletonList("field"), equal.getFields());
     }
 
     @Test(expected = IllegalArgumentException.class)

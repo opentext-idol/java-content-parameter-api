@@ -8,6 +8,7 @@ package com.autonomy.aci.content.fieldtext;
 import com.autonomy.aci.content.internal.InternalUtils;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 /**
  *
@@ -15,7 +16,7 @@ import java.util.Arrays;
 public class BIASVAL extends Specifier {
 
     public BIASVAL(final String field, final String value, final Number bias) {
-        this(Arrays.asList(field), value, bias);
+        this(Collections.singletonList(field), value, bias);
     }
 
     public BIASVAL(final String[] fields, final String value, final Number bias) {

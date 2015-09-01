@@ -5,14 +5,14 @@
 
 package com.autonomy.aci.content.fieldtext;
 
-import java.math.BigDecimal;
-import java.util.Arrays;
-
 import org.junit.Test;
 
-import static com.autonomy.aci.content.fieldtext.BIASVAL.*;
+import java.math.BigDecimal;
+import java.util.Arrays;
+import java.util.Collections;
 
-import static org.junit.Assert.*;
+import static com.autonomy.aci.content.fieldtext.BIASVAL.BIASVAL;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Tests for the <TT>BIASVAL</tt> class.
@@ -28,79 +28,79 @@ public class BIASVALTest {
         assertEquals("String, String, byte constructor", "BIASVAL{VALUE,11}:ns%3Afield", biasVal.toString());
         assertEquals("String, String, byte - getBias", 11.0, biasVal.getBias(), 0);
         assertEquals("String, String, byte - getMatchValue", "VALUE", biasVal.getMatchValue());
-        assertEquals("String, String, byte - getFields", Arrays.asList("ns:field"), biasVal.getFields());
+        assertEquals("String, String, byte - getFields", Collections.singletonList("ns:field"), biasVal.getFields());
 
         biasVal = new BIASVAL("ns:field", "VALUE", (short)11);
         assertEquals("String, String, short constructor", "BIASVAL{VALUE,11}:ns%3Afield", biasVal.toString());
         assertEquals("String, String, short - getBias", 11.0, biasVal.getBias(), 0);
         assertEquals("String, String, short - getMatchValue", "VALUE", biasVal.getMatchValue());
-        assertEquals("String, String, short - getFields", Arrays.asList("ns:field"), biasVal.getFields());
+        assertEquals("String, String, short - getFields", Collections.singletonList("ns:field"), biasVal.getFields());
 
         biasVal = new BIASVAL("ns:field", "VALUE", 11);
         assertEquals("String, String, int constructor", "BIASVAL{VALUE,11}:ns%3Afield", biasVal.toString());
         assertEquals("String, String, int - getBias", 11.0, biasVal.getBias(), 0);
         assertEquals("String, String, int - getMatchValue", "VALUE", biasVal.getMatchValue());
-        assertEquals("String, String, int - getFields", Arrays.asList("ns:field"), biasVal.getFields());
+        assertEquals("String, String, int - getFields", Collections.singletonList("ns:field"), biasVal.getFields());
 
         biasVal = new BIASVAL("ns:field", "VALUE", 11L);
         assertEquals("String, String, long constructor", "BIASVAL{VALUE,11}:ns%3Afield", biasVal.toString());
         assertEquals("String, String, long - getBias", 11.0, biasVal.getBias(), 0);
         assertEquals("String, String, long - getMatchValue", "VALUE", biasVal.getMatchValue());
-        assertEquals("String, String, long - getFields", Arrays.asList("ns:field"), biasVal.getFields());
+        assertEquals("String, String, long - getFields", Collections.singletonList("ns:field"), biasVal.getFields());
 
         biasVal = new BIASVAL("ns:field", "VALUE", -12.1f);
         assertEquals("String, String, float constructor", "BIASVAL{VALUE,-12.1}:ns%3Afield", biasVal.toString());
         assertEquals("String, String, float - getBias", -12.1, biasVal.getBias(), 0);
         assertEquals("String, String, float - getMatchValue", "VALUE", biasVal.getMatchValue());
-        assertEquals("String, String, float - getFields", Arrays.asList("ns:field"), biasVal.getFields());
+        assertEquals("String, String, float - getFields", Collections.singletonList("ns:field"), biasVal.getFields());
 
         biasVal = new BIASVAL("ns:field", "VALUE", -12.1);
         assertEquals("String, String, double constructor", "BIASVAL{VALUE,-12.1}:ns%3Afield", biasVal.toString());
         assertEquals("String, String, double - getBias", -12.1, biasVal.getBias(), 0);
         assertEquals("String, String, double - getMatchValue", "VALUE", biasVal.getMatchValue());
-        assertEquals("String, String, double - getFields", Arrays.asList("ns:field"), biasVal.getFields());
+        assertEquals("String, String, double - getFields", Collections.singletonList("ns:field"), biasVal.getFields());
         
         biasVal = new BIASVAL("ns:field", "VALUE", new Byte((byte)11));
         assertEquals("String, String, Byte constructor", "BIASVAL{VALUE,11}:ns%3Afield", biasVal.toString());
         assertEquals("String, String, Byte - getBias", 11.0, biasVal.getBias(), 0);
         assertEquals("String, String, Byte - getMatchValue", "VALUE", biasVal.getMatchValue());
-        assertEquals("String, String, Byte - getFields", Arrays.asList("ns:field"), biasVal.getFields());
+        assertEquals("String, String, Byte - getFields", Collections.singletonList("ns:field"), biasVal.getFields());
 
         biasVal = new BIASVAL("ns:field", "VALUE", new Short((short)11));
         assertEquals("String, String, Short constructor", "BIASVAL{VALUE,11}:ns%3Afield", biasVal.toString());
         assertEquals("String, String, Short - getBias", 11.0, biasVal.getBias(), 0);
         assertEquals("String, String, Short - getMatchValue", "VALUE", biasVal.getMatchValue());
-        assertEquals("String, String, Short - getFields", Arrays.asList("ns:field"), biasVal.getFields());
+        assertEquals("String, String, Short - getFields", Collections.singletonList("ns:field"), biasVal.getFields());
 
         biasVal = new BIASVAL("ns:field", "VALUE", new Integer(11));
         assertEquals("String, String, Integer constructor", "BIASVAL{VALUE,11}:ns%3Afield", biasVal.toString());
         assertEquals("String, String, Integer - getBias", 11.0, biasVal.getBias(), 0);
         assertEquals("String, String, Integer - getMatchValue", "VALUE", biasVal.getMatchValue());
-        assertEquals("String, String, Integer - getFields", Arrays.asList("ns:field"), biasVal.getFields());
+        assertEquals("String, String, Integer - getFields", Collections.singletonList("ns:field"), biasVal.getFields());
 
         biasVal = new BIASVAL("ns:field", "VALUE", new Long(11L));
         assertEquals("String, String, Long constructor", "BIASVAL{VALUE,11}:ns%3Afield", biasVal.toString());
         assertEquals("String, String, Long - getBias", 11.0, biasVal.getBias(), 0);
         assertEquals("String, String, Long - getMatchValue", "VALUE", biasVal.getMatchValue());
-        assertEquals("String, String, Long - getFields", Arrays.asList("ns:field"), biasVal.getFields());
+        assertEquals("String, String, Long - getFields", Collections.singletonList("ns:field"), biasVal.getFields());
 
         biasVal = new BIASVAL("ns:field", "VALUE", new Float(-12.1f));
         assertEquals("String, String, Float constructor", "BIASVAL{VALUE,-12.1}:ns%3Afield", biasVal.toString());
         assertEquals("String, String, Float - getBias", -12.1, biasVal.getBias(), 0);
         assertEquals("String, String, Float - getMatchValue", "VALUE", biasVal.getMatchValue());
-        assertEquals("String, String, Float - getFields", Arrays.asList("ns:field"), biasVal.getFields());
+        assertEquals("String, String, Float - getFields", Collections.singletonList("ns:field"), biasVal.getFields());
 
         biasVal = new BIASVAL("ns:field", "VALUE", new Double(-12.1));
         assertEquals("String, String, Double constructor", "BIASVAL{VALUE,-12.1}:ns%3Afield", biasVal.toString());
         assertEquals("String, String, Double - getBias", -12.1, biasVal.getBias(), 0);
         assertEquals("String, String, Double - getMatchValue", "VALUE", biasVal.getMatchValue());
-        assertEquals("String, String, Double - getFields", Arrays.asList("ns:field"), biasVal.getFields());
+        assertEquals("String, String, Double - getFields", Collections.singletonList("ns:field"), biasVal.getFields());
 
         biasVal = new BIASVAL("ns:field", "VALUE", new BigDecimal("-12.1"));
         assertEquals("String, String, BigDecimal constructor", "BIASVAL{VALUE,-12.1}:ns%3Afield", biasVal.toString());
         assertEquals("String, String, BigDecimal - getBias", -12.1, biasVal.getBias(), 0);
         assertEquals("String, String, BigDecimal - getMatchValue", "VALUE", biasVal.getMatchValue());
-        assertEquals("String, String, BigDecimal - getFields", Arrays.asList("ns:field"), biasVal.getFields());
+        assertEquals("String, String, BigDecimal - getFields", Collections.singletonList("ns:field"), biasVal.getFields());
     }
 
     @Test(expected = IllegalArgumentException.class)

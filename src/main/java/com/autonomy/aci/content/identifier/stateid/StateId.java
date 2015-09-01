@@ -4,14 +4,13 @@
  */
 package com.autonomy.aci.content.identifier.stateid;
 
+import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.Validate;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-
-import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.Validate;
 
 /**
  * A representation of a stored state id. A state id is string token that identifies a collection of documents that
@@ -82,7 +81,7 @@ public class StateId extends AbstractStateIds {
     @Override
     public Iterator<StateId> iterator() {
         // Should probably rewrite this to use a custom iterator
-        return Arrays.asList(this).iterator();
+        return Collections.singletonList(this).iterator();
     }
 
     /**

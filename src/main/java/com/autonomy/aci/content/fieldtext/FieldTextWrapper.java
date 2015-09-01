@@ -48,7 +48,7 @@ public final class FieldTextWrapper extends AbstractFieldText {
 
         this.fieldText = fieldText.toString().trim();
 
-        if (this.fieldText.length() == 0) {
+        if (this.fieldText.isEmpty()) {
             this.size = 0;
         }
         else {

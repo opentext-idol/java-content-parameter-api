@@ -5,14 +5,14 @@
 
 package com.autonomy.aci.content.printfields;
 
+import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.Validate;
+
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.regex.Pattern;
-
-import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.Validate;
 
 /**
  * Helper class for building printfields, such as those used in the <tt>printfields</tt> parameter of a query.
@@ -75,7 +75,7 @@ public class PrintFields implements Iterable<String> {
 
         for(final String field : fields) {
             Validate.isTrue(StringUtils.isNotBlank(field), "One of the fields provided was blank");
-            Validate.isTrue(!INVALID.matcher(field).matches(), "A field name cannot contain a plus, comma or whitespace: [" + field + "]");
+            Validate.isTrue(!INVALID.matcher(field).matches(), "A field name cannot contain a plus, comma or whitespace: [" + field + ']');
 
             newFields.add(field);
         }

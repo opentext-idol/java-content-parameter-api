@@ -6,12 +6,11 @@
 package com.autonomy.aci.content.identifier.reference;
 
 import com.autonomy.aci.client.util.AciURLCodec;
-
-import java.util.Arrays;
-import java.util.Iterator;
-
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.Validate;
+
+import java.util.Collections;
+import java.util.Iterator;
 
 /**
  * A representation of a document reference. A document reference is a string, and optionally a section number, that
@@ -52,7 +51,7 @@ public class Reference extends AbstractReferences {
     @Override
     public Iterator<Reference> iterator() {
         // Should probably rewrite this to use a custom iterator
-        return Arrays.asList(this).iterator();
+        return Collections.singletonList(this).iterator();
     }
 
     /**

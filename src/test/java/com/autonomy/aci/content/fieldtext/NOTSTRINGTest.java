@@ -4,13 +4,13 @@
  */
 package com.autonomy.aci.content.fieldtext;
 
-import java.util.Arrays;
-
 import org.junit.Test;
 
-import static com.autonomy.aci.content.fieldtext.NOTSTRING.*;
+import java.util.Arrays;
+import java.util.Collections;
 
-import static org.junit.Assert.*;
+import static com.autonomy.aci.content.fieldtext.NOTSTRING.NOTSTRING;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Tests for the <tt>NOTSTRING</tt> class.
@@ -25,7 +25,7 @@ public class NOTSTRINGTest {
         final NOTSTRING match = new NOTSTRING("ns:field", "20%", "10%", "1,2");
         assertEquals("String, String... constructor", "NOTSTRING{20%25,10%25,1%2C2}:ns%3Afield", match.toString());
         assertEquals("String, String... - getValues", Arrays.asList("20%", "10%", "1,2"), match.getValues());
-        assertEquals("String, String... - getFields", Arrays.asList("ns:field"), match.getFields());
+        assertEquals("String, String... - getFields", Collections.singletonList("ns:field"), match.getFields());
     }
 
     @Test
@@ -33,7 +33,7 @@ public class NOTSTRINGTest {
         final NOTSTRING match = new NOTSTRING("ns:field", new String[]{"20%", "10%", "1,2"});
         assertEquals("String, String[] constructor", "NOTSTRING{20%25,10%25,1%2C2}:ns%3Afield", match.toString());
         assertEquals("String, String[] - getValues", Arrays.asList("20%", "10%", "1,2"), match.getValues());
-        assertEquals("String, String[] - getFields", Arrays.asList("ns:field"), match.getFields());
+        assertEquals("String, String[] - getFields", Collections.singletonList("ns:field"), match.getFields());
     }
 
     @Test
@@ -41,7 +41,7 @@ public class NOTSTRINGTest {
         final NOTSTRING match = new NOTSTRING("ns:field", Arrays.asList("20%", "10%", "1,2"));
         assertEquals("String, Iterable<String> constructor", "NOTSTRING{20%25,10%25,1%2C2}:ns%3Afield", match.toString());
         assertEquals("String, Iterable<String> - getValues", Arrays.asList("20%", "10%", "1,2"), match.getValues());
-        assertEquals("String, Iterable<String> - getFields", Arrays.asList("ns:field"), match.getFields());
+        assertEquals("String, Iterable<String> - getFields", Collections.singletonList("ns:field"), match.getFields());
     }
 
     @Test
@@ -112,7 +112,7 @@ public class NOTSTRINGTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testNoValues2() {
-        new NOTSTRING("FIELD", Arrays.<String>asList());
+        new NOTSTRING("FIELD", Collections.<String>emptyList());
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -122,17 +122,17 @@ public class NOTSTRINGTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testNoValues4() {
-        new NOTSTRING(new String[]{"FIELD"}, Arrays.<String>asList());
+        new NOTSTRING(new String[]{"FIELD"}, Collections.<String>emptyList());
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testNoValues5() {
-        new NOTSTRING(Arrays.asList("FIELD"), new String[0]);
+        new NOTSTRING(Collections.singletonList("FIELD"), new String[0]);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testNoValues6() {
-        new NOTSTRING(Arrays.asList("FIELD"), Arrays.<String>asList());
+        new NOTSTRING(Collections.singletonList("FIELD"), Collections.<String>emptyList());
     }
 
 }

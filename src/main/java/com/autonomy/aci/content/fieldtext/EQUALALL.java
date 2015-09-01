@@ -5,10 +5,10 @@
 package com.autonomy.aci.content.fieldtext;
 
 import com.autonomy.aci.content.internal.InternalUtils;
+import org.apache.commons.lang.Validate;
 
 import java.util.Arrays;
-
-import org.apache.commons.lang.Validate;
+import java.util.Collections;
 
 /**
  *
@@ -35,7 +35,7 @@ public class EQUALALL extends Specifier {
     }
 
     public EQUALALL(final String field, final Iterable<? extends Number> values) {
-        this(Arrays.asList(field), values);
+        this(Collections.singletonList(field), values);
     }
 
     public <T extends Number> EQUALALL(final String[] fields, final T value, final T... values) {

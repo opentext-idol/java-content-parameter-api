@@ -5,13 +5,13 @@
 
 package com.autonomy.aci.content.fieldtext;
 
-import java.util.Arrays;
-
 import org.junit.Test;
 
-import static com.autonomy.aci.content.fieldtext.MATCHALL.*;
+import java.util.Arrays;
+import java.util.Collections;
 
-import static org.junit.Assert.*;
+import static com.autonomy.aci.content.fieldtext.MATCHALL.MATCHALL;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Tests for the <tt>MATCHALL</tt> class.
@@ -26,7 +26,7 @@ public class MATCHALLTest {
         final MATCHALL match = new MATCHALL("ns:field", "20%", "10%", "1,2");
         assertEquals("String, String... constructor", "MATCHALL{20%25,10%25,1%2C2}:ns%3Afield", match.toString());
         assertEquals("String, String... - getValues", Arrays.asList("20%", "10%", "1,2"), match.getValues());
-        assertEquals("String, String... - getFields", Arrays.asList("ns:field"), match.getFields());
+        assertEquals("String, String... - getFields", Collections.singletonList("ns:field"), match.getFields());
     }
 
     @Test
@@ -34,7 +34,7 @@ public class MATCHALLTest {
         final MATCHALL match = new MATCHALL("ns:field", new String[]{"20%", "10%", "1,2"});
         assertEquals("String, String[] constructor", "MATCHALL{20%25,10%25,1%2C2}:ns%3Afield", match.toString());
         assertEquals("String, String[] - getValues", Arrays.asList("20%", "10%", "1,2"), match.getValues());
-        assertEquals("String, String[] - getFields", Arrays.asList("ns:field"), match.getFields());
+        assertEquals("String, String[] - getFields", Collections.singletonList("ns:field"), match.getFields());
     }
 
     @Test
@@ -42,7 +42,7 @@ public class MATCHALLTest {
         final MATCHALL match = new MATCHALL("ns:field", Arrays.asList("20%", "10%", "1,2"));
         assertEquals("String, Iterable<String> constructor", "MATCHALL{20%25,10%25,1%2C2}:ns%3Afield", match.toString());
         assertEquals("String, Iterable<String> - getValues", Arrays.asList("20%", "10%", "1,2"), match.getValues());
-        assertEquals("String, Iterable<String> - getFields", Arrays.asList("ns:field"), match.getFields());
+        assertEquals("String, Iterable<String> - getFields", Collections.singletonList("ns:field"), match.getFields());
     }
 
     @Test
@@ -113,7 +113,7 @@ public class MATCHALLTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testNoValues3() {
-        new MATCHALL("FIELD", Arrays.<String>asList());
+        new MATCHALL("FIELD", Collections.<String>emptyList());
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -123,16 +123,16 @@ public class MATCHALLTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testNoValues6() {
-        new MATCHALL(new String[]{"FIELD"}, Arrays.<String>asList());
+        new MATCHALL(new String[]{"FIELD"}, Collections.<String>emptyList());
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testNoValues8() {
-        new MATCHALL(Arrays.asList("FIELD"), new String[0]);
+        new MATCHALL(Collections.singletonList("FIELD"), new String[0]);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testNoValues9() {
-        new MATCHALL(Arrays.asList("FIELD"), Arrays.<String>asList());
+        new MATCHALL(Collections.singletonList("FIELD"), Collections.<String>emptyList());
     }
 }

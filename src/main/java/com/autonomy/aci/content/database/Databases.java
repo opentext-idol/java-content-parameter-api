@@ -6,6 +6,8 @@
 package com.autonomy.aci.content.database;
 
 import com.autonomy.aci.content.identifier.QueryIdentifiers;
+import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.Validate;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -13,9 +15,6 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.regex.Pattern;
-
-import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.Validate;
 
 /**
  * <p>Helper class for building database restrictions, such as those used in the <tt>databasematch</tt> parameter of a
@@ -108,7 +107,7 @@ public class Databases implements Iterable<String>, QueryIdentifiers {
 
         for (final String database : databases) {
             Validate.isTrue(StringUtils.isNotEmpty(database), "One of the database names provided was empty");
-            Validate.isTrue(!INVALID.matcher(database).matches(), "A database name cannot contain a plus, comma or whitespace: [" + database + "]");
+            Validate.isTrue(!INVALID.matcher(database).matches(), "A database name cannot contain a plus, comma or whitespace: [" + database + ']');
 
             // Split on comma, plus and space
             newDatabases.add(database);

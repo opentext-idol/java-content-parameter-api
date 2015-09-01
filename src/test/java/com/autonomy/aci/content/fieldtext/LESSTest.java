@@ -5,14 +5,14 @@
 
 package com.autonomy.aci.content.fieldtext;
 
-import java.math.BigDecimal;
-import java.util.Arrays;
-
 import org.junit.Test;
 
-import static com.autonomy.aci.content.fieldtext.LESS.*;
+import java.math.BigDecimal;
+import java.util.Arrays;
+import java.util.Collections;
 
-import static org.junit.Assert.*;
+import static com.autonomy.aci.content.fieldtext.LESS.LESS;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Tests for the <tt>LESS</tt> class.
@@ -27,32 +27,32 @@ public class LESSTest {
         LESS less = new LESS("ns:field", (byte)7);
         assertEquals("String, byte constructor", "LESS{7}:ns%3Afield", less.toString());
         assertEquals("String, byte - getValues", 7.0, less.getNumericValue(), 0);
-        assertEquals("String, byte - getFields", Arrays.asList("ns:field"), less.getFields());
+        assertEquals("String, byte - getFields", Collections.singletonList("ns:field"), less.getFields());
 
         less = new LESS("ns:field", (short)7);
         assertEquals("String, short constructor", "LESS{7}:ns%3Afield", less.toString());
         assertEquals("String, short - getValues", 7.0, less.getNumericValue(), 0);
-        assertEquals("String, short - getFields", Arrays.asList("ns:field"), less.getFields());
+        assertEquals("String, short - getFields", Collections.singletonList("ns:field"), less.getFields());
 
         less = new LESS("ns:field", 7);
         assertEquals("String, int constructor", "LESS{7}:ns%3Afield", less.toString());
         assertEquals("String, int - getValues", 7.0, less.getNumericValue(), 0);
-        assertEquals("String, int - getFields", Arrays.asList("ns:field"), less.getFields());
+        assertEquals("String, int - getFields", Collections.singletonList("ns:field"), less.getFields());
 
         less = new LESS("ns:field", 7L);
         assertEquals("String, long constructor", "LESS{7}:ns%3Afield", less.toString());
         assertEquals("String, long - getValues", 7.0, less.getNumericValue(), 0);
-        assertEquals("String, long - getFields", Arrays.asList("ns:field"), less.getFields());
+        assertEquals("String, long - getFields", Collections.singletonList("ns:field"), less.getFields());
 
         less = new LESS("ns:field", 6.3f);
         assertEquals("String, float constructor", "LESS{6.3}:ns%3Afield", less.toString());
         assertEquals("String, float - getValues", 6.3, less.getNumericValue(), 0);
-        assertEquals("String, float - getFields", Arrays.asList("ns:field"), less.getFields());
+        assertEquals("String, float - getFields", Collections.singletonList("ns:field"), less.getFields());
 
         less = new LESS("ns:field", 6.3);
         assertEquals("String, double constructor", "LESS{6.3}:ns%3Afield", less.toString());
         assertEquals("String, double - getValues", 6.3, less.getNumericValue(), 0);
-        assertEquals("String, double - getFields", Arrays.asList("ns:field"), less.getFields());
+        assertEquals("String, double - getFields", Collections.singletonList("ns:field"), less.getFields());
     }
 
     @Test
@@ -60,37 +60,37 @@ public class LESSTest {
         LESS less = new LESS("ns:field", new Byte((byte)7));
         assertEquals("String, Byte constructor", "LESS{7}:ns%3Afield", less.toString());
         assertEquals("String, Byte - getValues", 7.0, less.getNumericValue(), 0);
-        assertEquals("String, Byte - getFields", Arrays.asList("ns:field"), less.getFields());
+        assertEquals("String, Byte - getFields", Collections.singletonList("ns:field"), less.getFields());
 
         less = new LESS("ns:field", new Short((short)7));
         assertEquals("String, Short constructor", "LESS{7}:ns%3Afield", less.toString());
         assertEquals("String, Short - getValues", 7.0, less.getNumericValue(), 0);
-        assertEquals("String, Short - getFields", Arrays.asList("ns:field"), less.getFields());
+        assertEquals("String, Short - getFields", Collections.singletonList("ns:field"), less.getFields());
 
         less = new LESS("ns:field", new Integer(7));
         assertEquals("String, Integer constructor", "LESS{7}:ns%3Afield", less.toString());
         assertEquals("String, Integer - getValues", 7.0, less.getNumericValue(), 0);
-        assertEquals("String, Integer - getFields", Arrays.asList("ns:field"), less.getFields());
+        assertEquals("String, Integer - getFields", Collections.singletonList("ns:field"), less.getFields());
 
         less = new LESS("ns:field", new Long(7L));
         assertEquals("String, Long constructor", "LESS{7}:ns%3Afield", less.toString());
         assertEquals("String, Long - getValues", 7.0, less.getNumericValue(), 0);
-        assertEquals("String, Long - getFields", Arrays.asList("ns:field"), less.getFields());
+        assertEquals("String, Long - getFields", Collections.singletonList("ns:field"), less.getFields());
 
         less = new LESS("ns:field", new Float(6.3f));
         assertEquals("String, Float constructor", "LESS{6.3}:ns%3Afield", less.toString());
         assertEquals("String, Float - getValues", 6.3, less.getNumericValue(), 0);
-        assertEquals("String, Float - getFields", Arrays.asList("ns:field"), less.getFields());
+        assertEquals("String, Float - getFields", Collections.singletonList("ns:field"), less.getFields());
 
         less = new LESS("ns:field", new Double(6.3));
         assertEquals("String, Double constructor", "LESS{6.3}:ns%3Afield", less.toString());
         assertEquals("String, Double - getValues", 6.3, less.getNumericValue(), 0);
-        assertEquals("String, Double - getFields", Arrays.asList("ns:field"), less.getFields());
+        assertEquals("String, Double - getFields", Collections.singletonList("ns:field"), less.getFields());
 
         less = new LESS("ns:field", new BigDecimal("6.3"));
         assertEquals("String, BigDecimal constructor", "LESS{6.3}:ns%3Afield", less.toString());
         assertEquals("String, BigDecimal - getValues", 6.3, less.getNumericValue(), 0);
-        assertEquals("String, BigDecimal - getFields", Arrays.asList("ns:field"), less.getFields());
+        assertEquals("String, BigDecimal - getFields", Collections.singletonList("ns:field"), less.getFields());
     }
 
     @Test

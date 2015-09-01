@@ -5,13 +5,14 @@
 package com.autonomy.aci.content.fieldtext;
 
 import com.autonomy.aci.client.util.AciURLCodec;
+import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.Validate;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
-import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.Validate;
 
 /**
  * A class to represent a general fieldtext specifier of the form:
@@ -55,7 +56,7 @@ public class Specifier extends AbstractFieldText {
      * @param values A <tt>String...</tt> of field values.
      */
     public Specifier(final String operator, final String field, final String... values) {
-        this(operator, Arrays.asList(field), toIterable(values));
+        this(operator, Collections.singletonList(field), toIterable(values));
     }
 
     /**
@@ -66,7 +67,7 @@ public class Specifier extends AbstractFieldText {
      * @param values An <tt>Iterable</tt> of field values.
      */
     public Specifier(final String operator, final String field, final Iterable<? extends String> values) {
-        this(operator, Arrays.asList(field), values);
+        this(operator, Collections.singletonList(field), values);
     }
 
     /**
@@ -289,7 +290,7 @@ public class Specifier extends AbstractFieldText {
      */
     @Override
     public final String toString() {
-        return new StringBuilder(OPERATOR).append('{').append(getValuesString()).append('}').append(getFieldsString()).toString();
+        return OPERATOR + '{' + getValuesString() + '}' + getFieldsString();
     }
 
     @Override

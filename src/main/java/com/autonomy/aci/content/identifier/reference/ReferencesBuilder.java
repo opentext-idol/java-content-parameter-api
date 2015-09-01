@@ -5,13 +5,13 @@
 
 package com.autonomy.aci.content.identifier.reference;
 
+import org.apache.commons.lang.Validate;
+
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
-
-import org.apache.commons.lang.Validate;
 
 /**
  * A builder class for aggregating multiple references into a single object.
@@ -37,7 +37,7 @@ public class ReferencesBuilder extends AbstractReferences {
      * @param section The section number
      */
     public ReferencesBuilder(final String reference, final int section) {
-        doAppend(Arrays.asList(new Reference(reference, section)));
+        doAppend(Collections.singletonList(new Reference(reference, section)));
     }
 
     /**
@@ -68,7 +68,7 @@ public class ReferencesBuilder extends AbstractReferences {
      */
     @Override
     public ReferencesBuilder append(final String reference, final int section) {
-        return doAppend(Arrays.asList(new Reference(reference, section)));
+        return doAppend(Collections.singletonList(new Reference(reference, section)));
     }
 
     /**

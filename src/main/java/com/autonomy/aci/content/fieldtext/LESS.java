@@ -8,6 +8,7 @@ package com.autonomy.aci.content.fieldtext;
 import com.autonomy.aci.content.internal.InternalUtils;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 /**
  *
@@ -15,7 +16,7 @@ import java.util.Arrays;
 public class LESS extends Specifier {
 
     public LESS(final String field, final Number value) {
-        this(Arrays.asList(field), value);
+        this(Collections.singletonList(field), value);
     }
 
     public LESS(final String[] fields, final Number value) {

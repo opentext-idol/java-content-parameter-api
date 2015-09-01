@@ -4,13 +4,13 @@
  */
 package com.autonomy.aci.content.identifier.stateid;
 
+import org.apache.commons.lang.Validate;
+
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
-
-import org.apache.commons.lang.Validate;
 
 /**
  * A builder class for aggregating multiple state ids into a single object.
@@ -36,7 +36,7 @@ public class StateIdsBuilder extends AbstractStateIds {
      * @param document The specific document index
      */
     public StateIdsBuilder(final String stateToken, final int document) {
-        doAppend(Arrays.asList(new StateId(stateToken, document)));
+        doAppend(Collections.singletonList(new StateId(stateToken, document)));
     }
 
     /**
@@ -47,7 +47,7 @@ public class StateIdsBuilder extends AbstractStateIds {
      * @param end The end index of the range
      */
     public StateIdsBuilder(final String stateToken, final int start, final int end) {
-        doAppend(Arrays.asList(new StateId(stateToken, start, end)));
+        doAppend(Collections.singletonList(new StateId(stateToken, start, end)));
     }
 
     /**
@@ -57,7 +57,7 @@ public class StateIdsBuilder extends AbstractStateIds {
      * @param range The index range
      */
     public StateIdsBuilder(final String stateToken, final StateRange range) {
-        doAppend(Arrays.asList(new StateId(stateToken, range)));
+        doAppend(Collections.singletonList(new StateId(stateToken, range)));
     }
 
     /**
@@ -89,7 +89,7 @@ public class StateIdsBuilder extends AbstractStateIds {
      */
     @Override
     public StateIdsBuilder append(final String stateToken, final int document) {
-        return doAppend(Arrays.asList(new StateId(stateToken, document)));
+        return doAppend(Collections.singletonList(new StateId(stateToken, document)));
     }
 
     /**
@@ -102,7 +102,7 @@ public class StateIdsBuilder extends AbstractStateIds {
      */
     @Override
     public StateIdsBuilder append(final String stateToken, final int start, final int end) {
-        return doAppend(Arrays.asList(new StateId(stateToken, start, end)));
+        return doAppend(Collections.singletonList(new StateId(stateToken, start, end)));
     }
 
     /**
@@ -114,7 +114,7 @@ public class StateIdsBuilder extends AbstractStateIds {
      */
     @Override
     public StateIdsBuilder append(final String stateToken, final StateRange range) {
-        return doAppend(Arrays.asList(new StateId(stateToken, range)));
+        return doAppend(Collections.singletonList(new StateId(stateToken, range)));
     }
 
     /**

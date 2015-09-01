@@ -6,12 +6,11 @@
 package com.autonomy.aci.content.sort;
 
 import com.autonomy.aci.client.util.AciURLCodec;
-
-import java.util.Arrays;
-import java.util.Iterator;
-
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.Validate;
+
+import java.util.Collections;
+import java.util.Iterator;
 
 /**
  * Class to represent the various sort specifiers. e.g.
@@ -138,7 +137,7 @@ public class SortBy extends AbstractSort {
     @Override
     public Iterator<SortBy> iterator() {
         // Should probably rewrite this to use a custom iterator
-        return Arrays.asList(this).iterator();
+        return Collections.singletonList(this).iterator();
     }
 
     /**

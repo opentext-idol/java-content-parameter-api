@@ -6,10 +6,10 @@
 package com.autonomy.aci.content.fieldtext;
 
 import com.autonomy.aci.content.internal.InternalUtils;
+import org.apache.commons.lang.Validate;
 
 import java.util.Arrays;
-
-import org.apache.commons.lang.Validate;
+import java.util.Collections;
 
 /**
  *
@@ -17,15 +17,15 @@ import org.apache.commons.lang.Validate;
 public class STRING extends Specifier {
 
     public STRING(final String field, final String value, final String... values) {
-        this(Arrays.asList(field), value, values);
+        this(Collections.singletonList(field), value, values);
     }
 
     public STRING(final String field, final String[] values) {
-        this(Arrays.asList(field), values);
+        this(Collections.singletonList(field), values);
     }
 
     public STRING(final String field, final Iterable<String> values) {
-        this(Arrays.asList(field), values);
+        this(Collections.singletonList(field), values);
     }
 
     public STRING(final String[] fields, final String value, final String... values) {

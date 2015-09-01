@@ -8,6 +8,7 @@ package com.autonomy.aci.content.fieldtext;
 import com.autonomy.aci.content.internal.InternalUtils;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 /**
  *
@@ -15,7 +16,7 @@ import java.util.Arrays;
 public class MATCHRECURSE extends Specifier {
 
     public MATCHRECURSE(final String field, final String value, final Number depth) {
-        this(Arrays.asList(field), value, depth);
+        this(Collections.singletonList(field), value, depth);
     }
 
     public MATCHRECURSE(final String[] fields, final String value, final Number depth) {

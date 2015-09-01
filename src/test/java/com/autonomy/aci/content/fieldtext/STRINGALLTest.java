@@ -5,13 +5,13 @@
 
 package com.autonomy.aci.content.fieldtext;
 
-import java.util.Arrays;
-
 import org.junit.Test;
 
-import static com.autonomy.aci.content.fieldtext.STRINGALL.*;
+import java.util.Arrays;
+import java.util.Collections;
 
-import static org.junit.Assert.*;
+import static com.autonomy.aci.content.fieldtext.STRINGALL.STRINGALL;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Tests for the <TT>STRINGALL</tt> class.
@@ -26,7 +26,7 @@ public class STRINGALLTest {
         final STRINGALL stringall = new STRINGALL("ns:field", "20%", "10%", "1,2");
         assertEquals("String, String... constructor", "STRINGALL{20%25,10%25,1%2C2}:ns%3Afield", stringall.toString());
         assertEquals("String, String... - getValues", Arrays.asList("20%", "10%", "1,2"), stringall.getValues());
-        assertEquals("String, String... - getFields", Arrays.asList("ns:field"), stringall.getFields());
+        assertEquals("String, String... - getFields", Collections.singletonList("ns:field"), stringall.getFields());
     }
 
     @Test
@@ -34,7 +34,7 @@ public class STRINGALLTest {
         final STRINGALL stringall = new STRINGALL("ns:field", new String[]{"20%", "10%", "1,2"});
         assertEquals("String, String[] constructor", "STRINGALL{20%25,10%25,1%2C2}:ns%3Afield", stringall.toString());
         assertEquals("String, String[] - getValues", Arrays.asList("20%", "10%", "1,2"), stringall.getValues());
-        assertEquals("String, String[] - getFields", Arrays.asList("ns:field"), stringall.getFields());
+        assertEquals("String, String[] - getFields", Collections.singletonList("ns:field"), stringall.getFields());
     }
 
     @Test
@@ -42,7 +42,7 @@ public class STRINGALLTest {
         final STRINGALL stringall = new STRINGALL("ns:field", Arrays.asList("20%", "10%", "1,2"));
         assertEquals("String, Iterable<String> constructor", "STRINGALL{20%25,10%25,1%2C2}:ns%3Afield", stringall.toString());
         assertEquals("String, Iterable<String> - getValues", Arrays.asList("20%", "10%", "1,2"), stringall.getValues());
-        assertEquals("String, Iterable<String> - getFields", Arrays.asList("ns:field"), stringall.getFields());
+        assertEquals("String, Iterable<String> - getFields", Collections.singletonList("ns:field"), stringall.getFields());
     }
 
     @Test
@@ -116,7 +116,7 @@ public class STRINGALLTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testNoValues2() {
-        new STRINGALL("FIELD", Arrays.<String>asList());
+        new STRINGALL("FIELD", Collections.<String>emptyList());
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -126,16 +126,16 @@ public class STRINGALLTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testNoValues4() {
-        new STRINGALL(new String[]{"FIELD"}, Arrays.<String>asList());
+        new STRINGALL(new String[]{"FIELD"}, Collections.<String>emptyList());
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testNoValues5() {
-        new STRINGALL(Arrays.asList("FIELD"), new String[0]);
+        new STRINGALL(Collections.singletonList("FIELD"), new String[0]);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testNoValues6() {
-        new STRINGALL(Arrays.asList("FIELD"), Arrays.<String>asList());
+        new STRINGALL(Collections.singletonList("FIELD"), Collections.<String>emptyList());
     }
 }

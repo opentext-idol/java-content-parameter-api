@@ -4,10 +4,10 @@
  */
 package com.autonomy.aci.content.identifier.id;
 
-import java.util.Arrays;
-import java.util.Iterator;
-
 import org.apache.commons.lang.Validate;
+
+import java.util.Collections;
+import java.util.Iterator;
 
 /**
  * A representation of a document id. A document id is a number that uniquely identifies a document within a particular
@@ -31,7 +31,7 @@ public class Id extends AbstractIds implements Comparable<Id> {
     @Override
     public Iterator<Id> iterator() {
         // Should probably rewrite this to use a custom iterator
-        return Arrays.asList(this).iterator();
+        return Collections.singletonList(this).iterator();
     }
 
     /**

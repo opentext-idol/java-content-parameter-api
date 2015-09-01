@@ -5,14 +5,14 @@
 
 package com.autonomy.aci.content.fieldtext;
 
+import org.junit.Test;
+
 import java.util.Arrays;
 import java.util.Collections;
 
-import org.junit.Test;
-
-import static com.autonomy.aci.content.fieldtext.EXISTS.*;
-
-import static org.junit.Assert.*;
+import static com.autonomy.aci.content.fieldtext.EXISTS.EXISTS;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Tests for the <TT>EXISTS</tt> class.
@@ -25,7 +25,7 @@ public class EXISTSTest {
     public void testString() {
         final EXISTS exists = new EXISTS("ns:field");
         assertEquals("String constructor", "EXISTS{}:ns%3Afield", exists.toString());
-        assertEquals("String - getFields", Arrays.asList("ns:field"), exists.getFields());
+        assertEquals("String - getFields", Collections.singletonList("ns:field"), exists.getFields());
         assertTrue("String - getValues", exists.getValues().isEmpty());
     }
 

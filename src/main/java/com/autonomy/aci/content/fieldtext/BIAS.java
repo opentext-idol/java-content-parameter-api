@@ -8,6 +8,7 @@ package com.autonomy.aci.content.fieldtext;
 import com.autonomy.aci.content.internal.InternalUtils;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 /**
  *
@@ -15,7 +16,7 @@ import java.util.Arrays;
 public class BIAS extends Specifier {
 
     public BIAS(final String field, final Number optimum, final Number range, final Number bias) {
-        this(Arrays.asList(field), optimum, range, bias);
+        this(Collections.singletonList(field), optimum, range, bias);
     }
 
     public BIAS(final String[] fields, final Number optimum, final Number range, final Number bias) {

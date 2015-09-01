@@ -4,8 +4,9 @@
  */
 package com.autonomy.aci.content.fieldtext;
 
-import static com.autonomy.aci.content.fieldtext.FieldTexts.MATCHNOTHING;
 import org.apache.commons.lang.Validate;
+
+import static com.autonomy.aci.content.fieldtext.FieldTexts.MATCHNOTHING;
 
 /**
  * <p>{@code FieldTextBuilder} allows for the building of complex fieldtext expressions from other fieldtext expressions
@@ -442,10 +443,10 @@ public final class FieldTextBuilder extends AbstractFieldText {
         }
 
         if (componentCount == 1) {
-            return new StringBuilder("NOT+").append(fieldTextString).toString();
+            return "NOT+" + fieldTextString;
         }
 
-        return new StringBuilder("NOT(").append(fieldTextString).append(')').toString();
+        return "NOT(" + fieldTextString + ')';
     }
 
     /**

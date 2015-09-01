@@ -5,13 +5,13 @@
 
 package com.autonomy.aci.content.fieldtext;
 
-import java.util.Arrays;
-
 import org.junit.Test;
 
-import static com.autonomy.aci.content.fieldtext.WILD.*;
+import java.util.Arrays;
+import java.util.Collections;
 
-import static org.junit.Assert.*;
+import static com.autonomy.aci.content.fieldtext.WILD.WILD;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Tests for the <tt>WILD</tt> class.
@@ -26,7 +26,7 @@ public class WILDTest {
         final WILD wild = new WILD("ns:field", "20%", "10%", "1,2");
         assertEquals("String, String... constructor", "WILD{20%25,10%25,1%2C2}:ns%3Afield", wild.toString());
         assertEquals("String, String... - getValues", Arrays.asList("20%", "10%", "1,2"), wild.getValues());
-        assertEquals("String, String... - getFields", Arrays.asList("ns:field"), wild.getFields());
+        assertEquals("String, String... - getFields", Collections.singletonList("ns:field"), wild.getFields());
     }
 
     @Test
@@ -34,7 +34,7 @@ public class WILDTest {
         final WILD wild = new WILD("ns:field", new String[]{"20%", "10%", "1,2"});
         assertEquals("String, String[] constructor", "WILD{20%25,10%25,1%2C2}:ns%3Afield", wild.toString());
         assertEquals("String, String[] - getValues", Arrays.asList("20%", "10%", "1,2"), wild.getValues());
-        assertEquals("String, String[] - getFields", Arrays.asList("ns:field"), wild.getFields());
+        assertEquals("String, String[] - getFields", Collections.singletonList("ns:field"), wild.getFields());
     }
 
     @Test
@@ -42,7 +42,7 @@ public class WILDTest {
         final WILD wild = new WILD("ns:field", Arrays.asList("20%", "10%", "1,2"));
         assertEquals("String, Iterable<String> constructor", "WILD{20%25,10%25,1%2C2}:ns%3Afield", wild.toString());
         assertEquals("String, Iterable<String> - getValues", Arrays.asList("20%", "10%", "1,2"), wild.getValues());
-        assertEquals("String, Iterable<String> - getFields", Arrays.asList("ns:field"), wild.getFields());
+        assertEquals("String, Iterable<String> - getFields", Collections.singletonList("ns:field"), wild.getFields());
     }
 
     @Test
@@ -116,7 +116,7 @@ public class WILDTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testNoValues2() {
-        new WILD("FIELD", Arrays.<String>asList());
+        new WILD("FIELD", Collections.<String>emptyList());
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -126,16 +126,16 @@ public class WILDTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testNoValues4() {
-        new WILD(new String[]{"FIELD"}, Arrays.<String>asList());
+        new WILD(new String[]{"FIELD"}, Collections.<String>emptyList());
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testNoValues5() {
-        new WILD(Arrays.asList("FIELD"), new String[0]);
+        new WILD(Collections.singletonList("FIELD"), new String[0]);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testNoValues6() {
-        new WILD(Arrays.asList("FIELD"), Arrays.<String>asList());
+        new WILD(Collections.singletonList("FIELD"), Collections.<String>emptyList());
     }
 }
