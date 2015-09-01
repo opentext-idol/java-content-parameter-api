@@ -46,6 +46,12 @@
         </developer>
     </developers>
 
+    <contributors>
+        <contributor>
+            <name>William O</name>
+        </contributor>
+    </contributors>
+
     <scm>
         <connection>scm:git:git@github.com:hpautonomy/java-content-parameter-api.git</connection>
         <developerConnection>scm:git:git@github.com:hpautonomy/java-content-parameter-api.git</developerConnection>

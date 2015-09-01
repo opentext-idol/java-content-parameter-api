@@ -28,10 +28,6 @@ import org.apache.commons.lang.Validate;
  * operators. This class and its known subclasses are all immutable but each class provides a number of constructors to
  * make instantiation as convenient as possible.
  *
- * @author darrelln
- * @author boba
- * @author williamo
- * @version $Revision$ $Date$
  */
 public class Specifier extends AbstractFieldText {
 

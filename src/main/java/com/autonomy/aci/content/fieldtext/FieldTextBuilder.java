@@ -73,10 +73,6 @@ import org.apache.commons.lang.Validate;
  *    }
  * </pre>
  *
- * @author darrelln
- * @author boba
- * @author williamo
- * @version $Revision$ $Date$
  */
 public final class FieldTextBuilder extends AbstractFieldText {
 

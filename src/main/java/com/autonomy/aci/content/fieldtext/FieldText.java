@@ -26,10 +26,6 @@ package com.autonomy.aci.content.fieldtext;
  *    String fieldText = ft.toString();
  * </pre>
  *
- * @author darrelln
- * @author boba
- * @author williamo
- * @version $Revision$ $Date$
  */
 public interface FieldText {
 

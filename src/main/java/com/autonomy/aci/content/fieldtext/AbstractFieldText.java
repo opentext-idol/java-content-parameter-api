@@ -13,10 +13,6 @@ package com.autonomy.aci.content.fieldtext;
  *   <li>Making an immutable singleton, wrapped by {@link FieldTextWrapper}, if the expression is a constant.
  * </ul>
  *
- * @author darrelln
- * @author boba
- * @author williamo
- * @version $Revision$ $Date$
  */
 public abstract class AbstractFieldText implements FieldText {
 
