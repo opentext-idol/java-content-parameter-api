@@ -11,38 +11,81 @@ import java.util.Arrays;
 import java.util.Collections;
 
 /**
- *
+ * Fieldtext specifier for the NOTSTRING operator
  */
 public class NOTSTRING extends Specifier {
 
+    /**
+     * Constructs a new single field NOTSTRING fieldtext
+     * @param field The field name
+     * @param value The first field value
+     * @param values Any additional field values
+     */
     public NOTSTRING(final String field, final String value, final String... values) {
         this(Collections.singletonList(field), value, values);
     }
 
+    /**
+     * Constructs a new single field NOTSTRING fieldtext
+     * @param field The field name
+     * @param values The field values
+     */
     public NOTSTRING(final String field, final String[] values) {
         this(Collections.singletonList(field), values);
     }
 
+    /**
+     * Constructs a new single field NOTSTRING fieldtext
+     * @param field The field name
+     * @param values The field values
+     */
     public NOTSTRING(final String field, final Iterable<String> values) {
         this(Collections.singletonList(field), values);
     }
 
+    /**
+     * Constructs a new multiple field NOTSTRING fieldtext
+     * @param fields The field names
+     * @param value The first field value
+     * @param values Any additional field values
+     */
     public NOTSTRING(final String[] fields, final String value, final String... values) {
         this(Arrays.asList(fields), value, values);
     }
 
+    /**
+     * Constructs a new single field NOTSTRING fieldtext
+     * @param fields The field names
+     * @param values The field values
+     */
     public NOTSTRING(final String[] fields, final String[] values) {
         this(Arrays.asList(fields), values);
     }
 
+    /**
+     * Constructs a new single field NOTSTRING fieldtext
+     * @param fields The field names
+     * @param values The field values
+     */
     public NOTSTRING(final String[] fields, final Iterable<String> values) {
         this(Arrays.asList(fields), values);
     }
 
+    /**
+     * Constructs a new multiple field NOTSTRING fieldtext
+     * @param fields The field names
+     * @param value The first field value
+     * @param values Any additional field values
+     */
     public NOTSTRING(final Iterable<String> fields, final String value, final String... values) {
         this(fields, InternalUtils.toList(value, values));
     }
 
+    /**
+     * Constructs a new single field NOTSTRING fieldtext
+     * @param fields The field names
+     * @param values The field values
+     */
     public NOTSTRING(final Iterable<String> fields, final String[] values) {
         this(fields, Arrays.asList(values));
     }

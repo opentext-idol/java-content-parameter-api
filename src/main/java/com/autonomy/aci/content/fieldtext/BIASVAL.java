@@ -11,26 +11,44 @@ import java.util.Arrays;
 import java.util.Collections;
 
 /**
- *
+ * Fieldtext specifier for the BIASVAL operator
  */
 public class BIASVAL extends Specifier {
 
+    /**
+     * Constructs a new single field BIASVAL fieldtext
+     * @param field The field to bias
+     * @param value The value that will receive bias
+     * @param bias THe amount of bias to apply
+     */
     public BIASVAL(final String field, final String value, final Number bias) {
         this(Collections.singletonList(field), value, bias);
     }
 
+    /**
+     * Constructs a new multiple field BIASVAL fieldtext
+     * @param fields The field to bias
+     * @param value The value that will receive bias
+     * @param bias THe amount of bias to apply
+     */
     public BIASVAL(final String[] fields, final String value, final Number bias) {
         this(Arrays.asList(fields), value, bias);
     }
 
+    /**
+     * Constructs a new multiple field BIASVAL fieldtext
+     * @param fields The field to bias
+     * @param value The value that will receive bias
+     * @param bias THe amount of bias to apply
+     */
     public BIASVAL(final Iterable<String> fields, final String value, final Number bias) {
         super("BIASVAL", fields, value, InternalUtils.numberToString(bias));
     }
-    
+
     public final String getMatchValue() {
         return getValues().get(0);
     }
-    
+
     public final double getBias() {
         return Double.parseDouble(getValues().get(1));
     }

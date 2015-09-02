@@ -10,18 +10,31 @@ import com.autonomy.aci.content.internal.InternalUtils;
 import java.util.Arrays;
 
 /**
- *
+ * Fieldtext specifier for the EXISTS operator
  */
 public class EXISTS extends Specifier {
 
+    /**
+     * Constructs a new multiple field EMPTY fieldtext
+     * @param fields The field names
+     */
     public EXISTS(final String[] fields) {
         this(Arrays.asList(fields));
     }
 
+    /**
+     * Constructs a new multiple field EMPTY fieldtext
+     * @param field The field names
+     * @param fields Any additional field names
+     */
     public EXISTS(final String field, final String... fields) {
         this(InternalUtils.toList(field, fields));
     }
 
+    /**
+     * Constructs a new multiple field EMPTY fieldtext
+     * @param fields The field names
+     */
     public EXISTS(final Iterable<String> fields) {
         super("EXISTS", fields);
     }

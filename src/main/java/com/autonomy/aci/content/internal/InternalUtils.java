@@ -12,7 +12,7 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- *
+ * Contains utility methods used bu other classes
  */
 public final class InternalUtils {
 

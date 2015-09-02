@@ -11,38 +11,81 @@ import java.util.Arrays;
 import java.util.Collections;
 
 /**
- *
+ * Fieldtext specifier for the NOTWILD operator
  */
 public class NOTWILD extends Specifier {
 
+    /**
+     * Constructs a new single field NOTWILD fieldtext
+     * @param field The field name
+     * @param value The first field value
+     * @param values Any additional field values
+     */
     public NOTWILD(final String field, final String value, final String... values) {
         this(Collections.singletonList(field), value, values);
     }
 
+    /**
+     * Constructs a new single field NOTWILD fieldtext
+     * @param field The field name
+     * @param values The field values
+     */
     public NOTWILD(final String field, final String[] values) {
         this(Collections.singletonList(field), values);
     }
 
+    /**
+     * Constructs a new single field NOTWILD fieldtext
+     * @param field The field name
+     * @param values The field values
+     */
     public NOTWILD(final String field, final Iterable<String> values) {
         this(Collections.singletonList(field), values);
     }
 
+    /**
+     * Constructs a new multiple field NOTWILD fieldtext
+     * @param fields The field names
+     * @param value The first field value
+     * @param values Any additional field values
+     */
     public NOTWILD(final String[] fields, final String value, final String... values) {
         this(Arrays.asList(fields), value, values);
     }
 
+    /**
+     * Constructs a new multiple field NOTWILD fieldtext
+     * @param fields The field names
+     * @param values The field values
+     */
     public NOTWILD(final String[] fields, final String[] values) {
         this(Arrays.asList(fields), values);
     }
 
+    /**
+     * Constructs a new multiple field NOTWILD fieldtext
+     * @param fields The field names
+     * @param values The field values
+     */
     public NOTWILD(final String[] fields, final Iterable<String> values) {
         this(Arrays.asList(fields), values);
     }
 
+    /**
+     * Constructs a new multiple field NOTWILD fieldtext
+     * @param fields The field names
+     * @param value The first field value
+     * @param values Any additional field values
+     */
     public NOTWILD(final Iterable<String> fields, final String value, final String... values) {
         this(fields, InternalUtils.toList(value, values));
     }
 
+    /**
+     * Constructs a new multiple field NOTWILD fieldtext
+     * @param fields The field names
+     * @param values The field values
+     */
     public NOTWILD(final Iterable<String> fields, final String[] values) {
         this(fields, Arrays.asList(values));
     }

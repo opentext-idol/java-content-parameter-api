@@ -11,18 +11,33 @@ import java.util.Arrays;
 import java.util.Collections;
 
 /**
- *
+ * Fieldtext specifier for the LESS operator
  */
 public class LESS extends Specifier {
 
+    /**
+     * Constructs a new single field LESS fieldtext
+     * @param field The field name
+     * @param value The field value
+     */
     public LESS(final String field, final Number value) {
         this(Collections.singletonList(field), value);
     }
 
+    /**
+     * Constructs a new multiple field LESS fieldtext
+     * @param fields The field names
+     * @param value The field value
+     */
     public LESS(final String[] fields, final Number value) {
         this(Arrays.asList(fields), value);
     }
 
+    /**
+     * Constructs a new multiple field LESS fieldtext
+     * @param fields The field names
+     * @param value The field value
+     */
     public LESS(final Iterable<String> fields, final Number value) {
         super("LESS", fields, InternalUtils.numberToString(value));
     }

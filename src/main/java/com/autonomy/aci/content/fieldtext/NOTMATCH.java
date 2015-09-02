@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.Collections;
 
 /**
- *
+ * Fieldtext specifier for the NOTMATCH operator
  */
 public class NOTMATCH extends Specifier {
 

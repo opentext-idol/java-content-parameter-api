@@ -10,18 +10,31 @@ import com.autonomy.aci.content.internal.InternalUtils;
 import java.util.Arrays;
 
 /**
- *
+ * Fieldtext specifier for the EMPTY operator
  */
 public class EMPTY extends Specifier {
 
+    /**
+     * Constructs a new multiple field EMPTY fieldtext
+     * @param field The first field name
+     * @param fields Any additional field names
+     */
     public EMPTY(final String field, final String... fields) {
         this(InternalUtils.toList(field, fields));
     }
 
+    /**
+     * Constructs a new multiple field EMPTY fieldtext
+     * @param fields The field names
+     */
     public EMPTY(final String[] fields) {
         this(Arrays.asList(fields));
     }
 
+    /**
+     * Constructs a new multiple field EMPTY fieldtext
+     * @param fields The field names
+     */
     public EMPTY(final Iterable<String> fields) {
         super("EMPTY", fields);
     }
