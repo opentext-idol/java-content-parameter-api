@@ -89,6 +89,7 @@ public class ReferenceTest {
         assertEquals("ref1+ref7+ref8", references.toIndexingString());
     }
     
+    @SuppressWarnings("EqualsBetweenInconvertibleTypes")
     @Test
     public void testEquals() {
         final Reference ref1 = new Reference("ref");
@@ -98,7 +99,8 @@ public class ReferenceTest {
         final Reference ref5 = new Reference("ref", 0);
         final Reference ref6 = new Reference("ref", 1);
         final Reference ref7 = new Reference("refer", 0);
-        
+
+        //noinspection EqualsWithItself
         assertTrue(ref1.equals(ref1));
         assertTrue(ref1.equals(ref2));
         assertTrue(ref4.equals(ref5));
@@ -106,7 +108,9 @@ public class ReferenceTest {
         assertFalse(ref4.equals(ref6));
         assertFalse(ref2.equals(ref3));
         assertFalse(ref4.equals(ref7));
+        //noinspection EqualsBetweenInconvertibleTypes
         assertFalse(ref1.equals("ref"));
+        //noinspection ObjectEqualsNull
         assertFalse(ref1.equals(null));
     }
 }

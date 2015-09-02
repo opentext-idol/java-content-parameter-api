@@ -91,8 +91,11 @@ public class PrintFieldsTest {
         final PrintFields printFields5 = new PrintFields("field1", "field2");
         final PrintFields printFields6 = new PrintFields("field2", "field1");
 
+        //noinspection EqualsWithItself
         assertTrue(printFields1.equals(printFields1));
+        //noinspection EqualsWithItself
         assertTrue(printFields3.equals(printFields3));
+        //noinspection EqualsWithItself
         assertTrue(printFields5.equals(printFields5));
 
         assertTrue(printFields1.equals(printFields2));
@@ -104,7 +107,9 @@ public class PrintFieldsTest {
         assertFalse(printFields1.equals(printFields5));
         assertFalse(printFields3.equals(printFields5));
 
+        //noinspection EqualsBetweenInconvertibleTypes
         assertFalse(printFields3.equals("field1"));
+        //noinspection ObjectEqualsNull
         assertFalse(printFields1.equals(null));
 
         assertEquals(printFields1.hashCode(), printFields2.hashCode());

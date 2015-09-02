@@ -388,7 +388,9 @@ public class FieldTextBuilderTest {
     public void testEquals() {
         final FieldText builder = new FieldTextBuilder(match1);
         assertTrue("equals() equal FieldText", builder.equals(match1));
+        //noinspection EqualsWithItself
         assertTrue("equals() self", builder.equals(builder));
+        //noinspection ObjectEqualsNull
         assertFalse("equals() null", builder.equals(null));
         assertFalse("equals() object", builder.equals(new Object()));
         assertFalse("equals() unequal builder", builder.equals(new FieldTextBuilder(match2)));

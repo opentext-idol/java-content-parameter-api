@@ -112,24 +112,33 @@ public class SortBuilderTest {
         new SortBuilder(Arrays.asList(SortBy.DATABASE, null));
     }
 
+    @SuppressWarnings("EqualsBetweenInconvertibleTypes")
     @Test
     public void testEqualsHashCode() {
         final SortBuilder builder = new SortBuilder(SortBy.DATABASE);
 
+        //noinspection EqualsWithItself
         assertTrue(builder.equals(builder));
+        //noinspection EqualsBetweenInconvertibleTypes
         assertTrue(builder.equals(SortBy.DATABASE));
+        //noinspection EqualsBetweenInconvertibleTypes
         assertFalse(builder.equals(SortBy.DATE));
 
+        //noinspection EqualsBetweenInconvertibleTypes
         assertFalse(builder.equals("database"));
+        //noinspection ObjectEqualsNull
         assertFalse(builder.equals(null));
 
         assertEquals(builder.hashCode(), SortBy.DATABASE.hashCode());
 
         builder.then(SortBy.DATE);
 
+        //noinspection EqualsWithItself
         assertTrue(builder.equals(builder));
         assertTrue(builder.equals(new SortBuilder(builder)));
+        //noinspection EqualsBetweenInconvertibleTypes
         assertFalse(builder.equals(SortBy.DATABASE));
+        //noinspection EqualsBetweenInconvertibleTypes
         assertFalse(builder.equals(SortBy.DATE));
 
         assertEquals(builder.hashCode(), new SortBuilder(builder).hashCode());

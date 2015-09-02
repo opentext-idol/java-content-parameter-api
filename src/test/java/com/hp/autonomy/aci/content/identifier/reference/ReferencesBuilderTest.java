@@ -20,8 +20,8 @@ public class ReferencesBuilderTest {
     public void testEmptyConstructor() {
         final References builder = new ReferencesBuilder();
 
-        assertFalse("".equals(builder.toString()));
-        assertFalse("".equals(builder.toIndexingString()));
+        assertFalse(builder.toString().isEmpty());
+        assertFalse(builder.toIndexingString().isEmpty());
         assertTrue(builder.isEmpty());
         assertEquals(0, builder.size());
     }

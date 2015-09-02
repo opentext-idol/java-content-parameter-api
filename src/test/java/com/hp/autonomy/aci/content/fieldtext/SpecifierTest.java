@@ -189,6 +189,7 @@ public class SpecifierTest {
         assertEquals(2, fieldText.size());
     }
 
+    @SuppressWarnings("EqualsBetweenInconvertibleTypes")
     @Test
     public void testEqualsHashCode() {
         final FieldText specifier1 = new Specifier("OPERATOR", "field", "val1", "val2");
@@ -199,6 +200,7 @@ public class SpecifierTest {
 
         final FieldText builder1 = new FieldTextBuilder(new Specifier("OPERATOR", "field", "val1", "val2"));
 
+        //noinspection EqualsWithItself
         assertThat(specifier1.equals(specifier1), is(true));
         assertThat(specifier1.equals(specifier2), is(true));
         assertThat(specifier1.equals(builder1), is(true));
@@ -207,7 +209,9 @@ public class SpecifierTest {
         assertThat(specifier1.equals(specifier4), is(false));
         assertThat(specifier1.equals(specifier5), is(false));
 
+        //noinspection EqualsBetweenInconvertibleTypes
         assertThat(specifier1.equals("OPERATOR{val1,val2}:field"), is(false));
+        //noinspection ObjectEqualsNull
         assertThat(specifier1.equals(null), is(false));
 
         System.out.println("specifier1 - " + specifier1.toString() + ", hashcode - " + specifier1.hashCode());

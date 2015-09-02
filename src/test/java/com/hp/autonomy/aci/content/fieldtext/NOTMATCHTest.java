@@ -6,6 +6,7 @@
 package com.hp.autonomy.aci.content.fieldtext;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 import org.junit.Test;
 
@@ -24,7 +25,7 @@ public class NOTMATCHTest {
         final NOTMATCH match = new NOTMATCH("ns:field", "20%", "10%", "1,2");
         assertEquals("String, String... constructor", "NOTMATCH{20%25,10%25,1%2C2}:ns%3Afield", match.toString());
         assertEquals("String, String... - getValues", Arrays.asList("20%", "10%", "1,2"), match.getValues());
-        assertEquals("String, String... - getFields", Arrays.asList("ns:field"), match.getFields());
+        assertEquals("String, String... - getFields", Collections.singletonList("ns:field"), match.getFields());
     }
 
     @Test
@@ -32,7 +33,7 @@ public class NOTMATCHTest {
         final NOTMATCH match = new NOTMATCH("ns:field", new String[]{"20%", "10%", "1,2"});
         assertEquals("String, String[] constructor", "NOTMATCH{20%25,10%25,1%2C2}:ns%3Afield", match.toString());
         assertEquals("String, String[] - getValues", Arrays.asList("20%", "10%", "1,2"), match.getValues());
-        assertEquals("String, String[] - getFields", Arrays.asList("ns:field"), match.getFields());
+        assertEquals("String, String[] - getFields", Collections.singletonList("ns:field"), match.getFields());
     }
 
     @Test
@@ -40,7 +41,7 @@ public class NOTMATCHTest {
         final NOTMATCH match = new NOTMATCH("ns:field", Arrays.asList("20%", "10%", "1,2"));
         assertEquals("String, Iterable<String> constructor", "NOTMATCH{20%25,10%25,1%2C2}:ns%3Afield", match.toString());
         assertEquals("String, Iterable<String> - getValues", Arrays.asList("20%", "10%", "1,2"), match.getValues());
-        assertEquals("String, Iterable<String> - getFields", Arrays.asList("ns:field"), match.getFields());
+        assertEquals("String, Iterable<String> - getFields", Collections.singletonList("ns:field"), match.getFields());
     }
 
     @Test
@@ -111,7 +112,7 @@ public class NOTMATCHTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testNoValues2() {
-        new NOTMATCH("FIELD", Arrays.<String>asList());
+        new NOTMATCH("FIELD", Collections.<String>emptyList());
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -121,16 +122,16 @@ public class NOTMATCHTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testNoValues4() {
-        new NOTMATCH(new String[]{"FIELD"}, Arrays.<String>asList());
+        new NOTMATCH(new String[]{"FIELD"}, Collections.<String>emptyList());
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testNoValues5() {
-        new NOTMATCH(Arrays.asList("FIELD"), new String[0]);
+        new NOTMATCH(Collections.singletonList("FIELD"), new String[0]);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testNoValues6() {
-        new NOTMATCH(Arrays.asList("FIELD"), Arrays.<String>asList());
+        new NOTMATCH(Collections.singletonList("FIELD"), Collections.<String>emptyList());
     }
 }

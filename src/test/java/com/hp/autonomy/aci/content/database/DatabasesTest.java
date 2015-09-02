@@ -145,6 +145,7 @@ public class DatabasesTest {
         Databases.from(null);
     }
     
+    @SuppressWarnings("EqualsWithItself")
     @Test
     public void testEqualsHashCode() {
         final Databases databases1 = new Databases();
@@ -174,7 +175,9 @@ public class DatabasesTest {
         assertFalse(databases3.equals(databases7));
         assertFalse(databases5.equals(databases7));
 
+        //noinspection EqualsBetweenInconvertibleTypes
         assertFalse(databases3.equals("field1"));
+        //noinspection ObjectEqualsNull
         assertFalse(databases1.equals(null));
 
         assertEquals(databases1.hashCode(), databases2.hashCode());

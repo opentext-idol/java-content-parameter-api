@@ -4,6 +4,7 @@
  */
 package com.hp.autonomy.aci.content.identifier.stateid;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Iterator;
 import java.util.Arrays;
@@ -283,6 +284,7 @@ public class StateIdTest {
         iterator.remove();
     }
 
+    @SuppressWarnings({"EqualsWithItself", "EqualsBetweenInconvertibleTypes"})
     @Test
     public void testEqualsHashCode() {
         final StateIds stateId1 = new StateId("ABC-12");
@@ -317,7 +319,9 @@ public class StateIdTest {
         assertTrue(stateId3.equals(stateIdsBuilder2));
 
         // Not a StateIds
+        //noinspection EqualsBetweenInconvertibleTypes
         assertFalse(stateId1.equals("ABC-12"));
+        //noinspection ObjectEqualsNull
         assertFalse(stateId1.equals(null));
 
         // Hashcode
@@ -424,7 +428,7 @@ public class StateIdTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testAppendIterableUnknownEntry() {
-        new StateId("XYZ-12", 5).append(Arrays.asList(1));
+        new StateId("XYZ-12", 5).append(Collections.singletonList(1));
     }
 
     @Test

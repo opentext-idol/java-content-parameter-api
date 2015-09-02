@@ -63,7 +63,7 @@ public class FieldTextWrapperTest {
             
     @Test(expected = IllegalArgumentException.class)
     public void testNullFieldTextException() {
-        new FieldTextWrapper((FieldText)null);
+        new FieldTextWrapper(null);
     }
 
     @Test(expected = IllegalArgumentException.class)

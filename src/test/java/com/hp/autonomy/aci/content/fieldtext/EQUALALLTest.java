@@ -185,7 +185,7 @@ public class EQUALALLTest {
         assertEquals("EQUALALL{1,2,3}:field", EQUALALL.toString());
         assertEquals(Arrays.asList("1", "2", "3"), EQUALALL.getValues());
         assertArrayEquals(new double[]{1.0, 2.0, 3.0}, EQUALALL.getNumericValues(), 0);
-        assertEquals(Arrays.asList("field"), EQUALALL.getFields());
+        assertEquals(Collections.singletonList("field"), EQUALALL.getFields());
     }
 
     @Test(expected = IllegalArgumentException.class)

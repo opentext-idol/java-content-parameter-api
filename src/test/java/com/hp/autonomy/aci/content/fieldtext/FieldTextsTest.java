@@ -5,6 +5,7 @@
 package com.hp.autonomy.aci.content.fieldtext;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 import org.junit.Test;
 
@@ -39,7 +40,7 @@ public class FieldTextsTest {
 
     @Test
     public void testANDIterable() {
-        final FieldTextBuilder single = FieldTexts.AND(Arrays.asList(new EQUAL("FIELD", 1, 2)));
+        final FieldTextBuilder single = FieldTexts.AND(Collections.singletonList(new EQUAL("FIELD", 1, 2)));
         assertEquals("single toString()", "EQUAL{1,2}:FIELD", single.toString());
 
         final FieldTextBuilder pair = FieldTexts.AND(Arrays.asList(new EQUAL("FIELD", 1, 2), new MATCH("TEXT", "dog")));
@@ -73,7 +74,7 @@ public class FieldTextsTest {
 
     @Test
     public void testORIterable() {
-        final FieldTextBuilder single = FieldTexts.OR(Arrays.asList(new EQUAL("FIELD", 1, 2)));
+        final FieldTextBuilder single = FieldTexts.OR(Collections.singletonList(new EQUAL("FIELD", 1, 2)));
         assertEquals("single toString()", "EQUAL{1,2}:FIELD", single.toString());
 
         final FieldTextBuilder pair = FieldTexts.OR(Arrays.asList(new EQUAL("FIELD", 1, 2), new MATCH("TEXT", "dog")));
@@ -107,7 +108,7 @@ public class FieldTextsTest {
 
     @Test
     public void testXORIterable() {
-        final FieldTextBuilder single = FieldTexts.XOR(Arrays.asList(new EQUAL("FIELD", 1, 2)));
+        final FieldTextBuilder single = FieldTexts.XOR(Collections.singletonList(new EQUAL("FIELD", 1, 2)));
         assertEquals("single toString()", "EQUAL{1,2}:FIELD", single.toString());
 
         final FieldTextBuilder pair = FieldTexts.XOR(Arrays.asList(new EQUAL("FIELD", 1, 2), new MATCH("TEXT", "dog")));

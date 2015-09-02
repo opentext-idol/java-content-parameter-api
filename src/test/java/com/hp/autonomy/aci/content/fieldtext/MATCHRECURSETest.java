@@ -7,6 +7,7 @@ package com.hp.autonomy.aci.content.fieldtext;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
+import java.util.Collections;
 
 import org.junit.Test;
 
@@ -29,79 +30,79 @@ public class MATCHRECURSETest {
         assertEquals("String, String, byte constructor", "MATCHRECURSE{VALUE,11}:ns%3Afield", matchRecurse.toString());
         assertEquals("String, String, byte - getDepth", 11, matchRecurse.getDepth());
         assertEquals("String, String, byte - getMatchValue", "VALUE", matchRecurse.getMatchValue());
-        assertEquals("String, String, byte - getFields", Arrays.asList("ns:field"), matchRecurse.getFields());
+        assertEquals("String, String, byte - getFields", Collections.singletonList("ns:field"), matchRecurse.getFields());
 
         matchRecurse = new MATCHRECURSE("ns:field", "VALUE", (short)11);
         assertEquals("String, String, short constructor", "MATCHRECURSE{VALUE,11}:ns%3Afield", matchRecurse.toString());
         assertEquals("String, String, short - getDepth", 11, matchRecurse.getDepth());
         assertEquals("String, String, short - getMatchValue", "VALUE", matchRecurse.getMatchValue());
-        assertEquals("String, String, short - getFields", Arrays.asList("ns:field"), matchRecurse.getFields());
+        assertEquals("String, String, short - getFields", Collections.singletonList("ns:field"), matchRecurse.getFields());
 
         matchRecurse = new MATCHRECURSE("ns:field", "VALUE", 11);
         assertEquals("String, String, int constructor", "MATCHRECURSE{VALUE,11}:ns%3Afield", matchRecurse.toString());
         assertEquals("String, String, int - getDepth", 11, matchRecurse.getDepth());
         assertEquals("String, String, int - getMatchValue", "VALUE", matchRecurse.getMatchValue());
-        assertEquals("String, String, int - getFields", Arrays.asList("ns:field"), matchRecurse.getFields());
+        assertEquals("String, String, int - getFields", Collections.singletonList("ns:field"), matchRecurse.getFields());
 
         matchRecurse = new MATCHRECURSE("ns:field", "VALUE", 11L);
         assertEquals("String, String, long constructor", "MATCHRECURSE{VALUE,11}:ns%3Afield", matchRecurse.toString());
         assertEquals("String, String, long - getDepth", 11, matchRecurse.getDepth());
         assertEquals("String, String, long - getMatchValue", "VALUE", matchRecurse.getMatchValue());
-        assertEquals("String, String, long - getFields", Arrays.asList("ns:field"), matchRecurse.getFields());
+        assertEquals("String, String, long - getFields", Collections.singletonList("ns:field"), matchRecurse.getFields());
 
         matchRecurse = new MATCHRECURSE("ns:field", "VALUE", 12.1f);
         assertEquals("String, String, float constructor", "MATCHRECURSE{VALUE,12}:ns%3Afield", matchRecurse.toString());
         assertEquals("String, String, float - getDepth", 12, matchRecurse.getDepth());
         assertEquals("String, String, float - getMatchValue", "VALUE", matchRecurse.getMatchValue());
-        assertEquals("String, String, float - getFields", Arrays.asList("ns:field"), matchRecurse.getFields());
+        assertEquals("String, String, float - getFields", Collections.singletonList("ns:field"), matchRecurse.getFields());
 
         matchRecurse = new MATCHRECURSE("ns:field", "VALUE", 12.1);
         assertEquals("String, String, double constructor", "MATCHRECURSE{VALUE,12}:ns%3Afield", matchRecurse.toString());
         assertEquals("String, String, double - getDepth", 12, matchRecurse.getDepth());
         assertEquals("String, String, double - getMatchValue", "VALUE", matchRecurse.getMatchValue());
-        assertEquals("String, String, double - getFields", Arrays.asList("ns:field"), matchRecurse.getFields());
+        assertEquals("String, String, double - getFields", Collections.singletonList("ns:field"), matchRecurse.getFields());
         
         matchRecurse = new MATCHRECURSE("ns:field", "VALUE", new Byte((byte)11));
         assertEquals("String, String, Byte constructor", "MATCHRECURSE{VALUE,11}:ns%3Afield", matchRecurse.toString());
         assertEquals("String, String, Byte - getDepth", 11, matchRecurse.getDepth());
         assertEquals("String, String, Byte - getMatchValue", "VALUE", matchRecurse.getMatchValue());
-        assertEquals("String, String, Byte - getFields", Arrays.asList("ns:field"), matchRecurse.getFields());
+        assertEquals("String, String, Byte - getFields", Collections.singletonList("ns:field"), matchRecurse.getFields());
 
         matchRecurse = new MATCHRECURSE("ns:field", "VALUE", new Short((short)11));
         assertEquals("String, String, Short constructor", "MATCHRECURSE{VALUE,11}:ns%3Afield", matchRecurse.toString());
         assertEquals("String, String, Short - getDepth", 11, matchRecurse.getDepth());
         assertEquals("String, String, Short - getMatchValue", "VALUE", matchRecurse.getMatchValue());
-        assertEquals("String, String, Short - getFields", Arrays.asList("ns:field"), matchRecurse.getFields());
+        assertEquals("String, String, Short - getFields", Collections.singletonList("ns:field"), matchRecurse.getFields());
 
         matchRecurse = new MATCHRECURSE("ns:field", "VALUE", new Integer(11));
         assertEquals("String, String, Integer constructor", "MATCHRECURSE{VALUE,11}:ns%3Afield", matchRecurse.toString());
         assertEquals("String, String, Integer - getDepth", 11, matchRecurse.getDepth());
         assertEquals("String, String, Integer - getMatchValue", "VALUE", matchRecurse.getMatchValue());
-        assertEquals("String, String, Integer - getFields", Arrays.asList("ns:field"), matchRecurse.getFields());
+        assertEquals("String, String, Integer - getFields", Collections.singletonList("ns:field"), matchRecurse.getFields());
 
         matchRecurse = new MATCHRECURSE("ns:field", "VALUE", new Long(11L));
         assertEquals("String, String, Long constructor", "MATCHRECURSE{VALUE,11}:ns%3Afield", matchRecurse.toString());
         assertEquals("String, String, Long - getDepth", 11, matchRecurse.getDepth());
         assertEquals("String, String, Long - getMatchValue", "VALUE", matchRecurse.getMatchValue());
-        assertEquals("String, String, Long - getFields", Arrays.asList("ns:field"), matchRecurse.getFields());
+        assertEquals("String, String, Long - getFields", Collections.singletonList("ns:field"), matchRecurse.getFields());
 
         matchRecurse = new MATCHRECURSE("ns:field", "VALUE", new Float(12.1f));
         assertEquals("String, String, Float constructor", "MATCHRECURSE{VALUE,12}:ns%3Afield", matchRecurse.toString());
         assertEquals("String, String, Float - getDepth", 12, matchRecurse.getDepth());
         assertEquals("String, String, Float - getMatchValue", "VALUE", matchRecurse.getMatchValue());
-        assertEquals("String, String, Float - getFields", Arrays.asList("ns:field"), matchRecurse.getFields());
+        assertEquals("String, String, Float - getFields", Collections.singletonList("ns:field"), matchRecurse.getFields());
 
         matchRecurse = new MATCHRECURSE("ns:field", "VALUE", new Double(12.1));
         assertEquals("String, String, Double constructor", "MATCHRECURSE{VALUE,12}:ns%3Afield", matchRecurse.toString());
         assertEquals("String, String, Double - getDepth", 12, matchRecurse.getDepth());
         assertEquals("String, String, Double - getMatchValue", "VALUE", matchRecurse.getMatchValue());
-        assertEquals("String, String, Double - getFields", Arrays.asList("ns:field"), matchRecurse.getFields());
+        assertEquals("String, String, Double - getFields", Collections.singletonList("ns:field"), matchRecurse.getFields());
 
         matchRecurse = new MATCHRECURSE("ns:field", "VALUE", new BigDecimal("12.1"));
         assertEquals("String, String, BigDecimal constructor", "MATCHRECURSE{VALUE,12}:ns%3Afield", matchRecurse.toString());
         assertEquals("String, String, BigDecimal - getDepth", 12, matchRecurse.getDepth());
         assertEquals("String, String, BigDecimal - getMatchValue", "VALUE", matchRecurse.getMatchValue());
-        assertEquals("String, String, BigDecimal - getFields", Arrays.asList("ns:field"), matchRecurse.getFields());
+        assertEquals("String, String, BigDecimal - getFields", Collections.singletonList("ns:field"), matchRecurse.getFields());
     }
 
     @Test(expected = IllegalArgumentException.class)

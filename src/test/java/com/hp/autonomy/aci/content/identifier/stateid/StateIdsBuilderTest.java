@@ -18,7 +18,7 @@ public class StateIdsBuilderTest {
     public void testEmptyConstructor() {
         final StateIds stateIds = new StateIdsBuilder();
 
-        assertFalse("".equals(stateIds.toString()));
+        assertFalse(stateIds.toString().isEmpty());
         assertEquals(0, stateIds.size());
         assertTrue(stateIds.isEmpty());
         assertFalse(stateIds.iterator().hasNext());
