@@ -11,6 +11,7 @@ import java.util.Arrays;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
+import static com.hp.autonomy.aci.content.fieldtext.MATCHRECURSE.*;
 
 /**
  * Tests for the <tt>MATCHRECURSE</tt> class.
