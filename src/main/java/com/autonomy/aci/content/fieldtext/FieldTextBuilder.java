@@ -38,7 +38,7 @@ import static com.autonomy.aci.content.fieldtext.FieldTexts.MATCHNOTHING;
  * via OR should have no effect. This was not the behaviour in earlier versions of this class and this counter-intuitive
  * behaviour led to problems. The problem was fixed using the {@link FieldTexts#MATCHNOTHING} specifier but introduced
  * another problem in that it was now much more difficult to build up a sequence of expressions separated by OR. Static
- * factory methods have been added to make thid easier, see the examples below for current usage patterns.
+ * factory methods have been added to make this easier, see the examples below for current usage patterns.
  *
  * <p>Example 1 - Some of the fieldtext is fixed and can be added at construction time:
  *
