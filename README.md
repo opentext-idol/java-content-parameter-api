@@ -4,6 +4,8 @@ API for representing aspects of IDOL's Content server, including FieldText and d
 
 [![Build Status](https://travis-ci.org/hpautonomy/java-content-parameter-api.svg?branch=master)](https://travis-ci.org/hpautonomy/java-content-parameter-api)
 
+Information can be found on the project homepage [here](http://hpautonomy.github.io/java-content-parameter-api)
+
 ## Usage
 
 HP Autonomy Content Parameter API is available from the central Maven repository.
