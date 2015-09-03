@@ -42,7 +42,7 @@ public class SortBy extends AbstractSort {
 
     /**
      * Constructor for creating a {@code SortBy} that only requires a specifier name.
-     * <p/>
+     * <p>
      * This constructor is {@code protected} to discourage its use, not because a subclass is strictly required. All of
      * the current sort specifiers of this form exist as immutable, static fields of this class.
      *
@@ -55,7 +55,7 @@ public class SortBy extends AbstractSort {
 
     /**
      * Constructor for creating a {@code SortBy} that requires both a specifier name and a field name.
-     * <p/>
+     * <p>
      * This constructor is {@code protected} to discourage its use, not because a subclass is strictly required. All of
      * the current sort specifiers of this form can be created via static methods of this class.
      *

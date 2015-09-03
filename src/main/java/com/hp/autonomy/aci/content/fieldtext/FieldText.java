@@ -15,10 +15,10 @@ package com.hp.autonomy.aci.content.fieldtext;
  * The {@link FieldTextBuilder} class can be used to combine FieldText specifiers into more complex expressions.
  * However, it is often unnecessary to explicitly instantiate a {@link FieldTextBuilder} as the {@code FieldText}
  * interface forces all specifiers to provide support for combining expressions.
- * <p/>
+ * <p>
  * The {@link Specifier} class provides both a generic object for representing a specifier as well as being a suitable
  * base class for other specifiers.
- * <p/>
+ * <p>
  * Example:
  *
  * <pre>

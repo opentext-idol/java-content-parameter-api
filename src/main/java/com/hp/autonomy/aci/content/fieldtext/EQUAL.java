@@ -21,6 +21,7 @@ public class EQUAL extends Specifier {
      * @param field The field name
      * @param value The first value
      * @param values Any additional values
+     * @param <T> The numeric type
      */
     public <T extends Number> EQUAL(final String field, final T value, final T... values) {
         this(field, InternalUtils.<Number>toList(value, values));
@@ -30,6 +31,7 @@ public class EQUAL extends Specifier {
      * Constructs a new single field EQUAL fieldtext
      * @param field The field name
      * @param values The field values
+     * @param <T> The numeric type
      */
     public <T extends Number> EQUAL(final String field, final T[] values) {
         this(field, Arrays.asList(values));
@@ -76,6 +78,7 @@ public class EQUAL extends Specifier {
      * @param fields The field names
      * @param value The first value
      * @param values Any additional values
+     * @param <T> The numeric type
      */
     public <T extends Number> EQUAL(final String[] fields, final T value, final T... values) {
         this(fields, InternalUtils.<Number>toList(value, values));
@@ -85,6 +88,7 @@ public class EQUAL extends Specifier {
      * Constructs a new multiple field EQUAL fieldtext
      * @param fields The field name
      * @param values The field values
+     * @param <T> The numeric type
      */
     public <T extends Number> EQUAL(final String[] fields, final T[] values) {
         this(fields, Arrays.asList(values));
@@ -131,6 +135,7 @@ public class EQUAL extends Specifier {
      * @param fields The field names
      * @param value The first value
      * @param values Any additional values
+     * @param <T> The numeric type
      */
     public <T extends Number> EQUAL(final Iterable<? extends String> fields, final T value, final T... values) {
         this(fields, InternalUtils.<Number>toList(value, values));
@@ -140,6 +145,7 @@ public class EQUAL extends Specifier {
      * Constructs a new multiple field EQUAL fieldtext
      * @param fields The field name
      * @param values The field values
+     * @param <T> The numeric type
      */
     public <T extends Number> EQUAL(final Iterable<? extends String> fields, final T[] values) {
         this(fields, Arrays.asList(values));

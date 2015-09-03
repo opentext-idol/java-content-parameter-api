@@ -24,7 +24,7 @@ import java.util.Locale;
  * the forms of these aspects of the specifier, for example allowing only numeric values. As there is no reliable way to
  * distinguish between colons in XML namespaces and colons in metafields (e.g. autn:date), only namespaces will be
  * escaped automatically. To use a metafield the colon must be escaped to an underscore manually.
- * <p/>
+ * <p>
  * It should not usually be necessary to instantiate this class directly as subclasses exist for all common fieldtext
  * operators. This class and its known subclasses are all immutable but each class provides a number of constructors to
  * make instantiation as convenient as possible.

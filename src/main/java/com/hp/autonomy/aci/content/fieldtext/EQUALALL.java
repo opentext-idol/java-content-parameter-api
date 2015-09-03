@@ -20,6 +20,7 @@ public class EQUALALL extends Specifier {
      * @param field The field name
      * @param value The first value
      * @param values Any additional values
+     * @param <T> The numeric type
      */
     public <T extends Number> EQUALALL(final String field, final T value, final T... values) {
         this(field, InternalUtils.<Number>toList(value, values));
@@ -29,6 +30,7 @@ public class EQUALALL extends Specifier {
      * Constructs a new single field EQUALALL fieldtext
      * @param field The field name
      * @param values The field values
+     * @param <T> The numeric type
      */
     public <T extends Number> EQUALALL(final String field, final T[] values) {
         this(field, Arrays.asList(values));
@@ -75,6 +77,7 @@ public class EQUALALL extends Specifier {
      * @param fields The field name
      * @param value The first field value
      * @param values Any additional field values
+     * @param <T> The numeric type
      */
     public <T extends Number> EQUALALL(final String[] fields, final T value, final T... values) {
         this(fields, InternalUtils.<Number>toList(value, values));
@@ -84,6 +87,7 @@ public class EQUALALL extends Specifier {
      * Constructs a new multiple field EQUALALL fieldtext
      * @param fields The field name
      * @param values The field values
+     * @param <T> The numeric type
      */
     public <T extends Number> EQUALALL(final String[] fields, final T[] values) {
         this(fields, Arrays.asList(values));
@@ -128,6 +132,7 @@ public class EQUALALL extends Specifier {
      * @param fields The field name
      * @param value The first field value
      * @param values Any additional field values
+     * @param <T> The numeric type
      */
     public <T extends Number> EQUALALL(final Iterable<? extends String> fields, final T value, final T... values) {
         this(fields, InternalUtils.<Number>toList(value, values));
@@ -137,6 +142,7 @@ public class EQUALALL extends Specifier {
      * Constructs a new multiple field EQUALALL fieldtext
      * @param fields The field name
      * @param values The field values
+     * @param <T> The numeric type
      */
     public <T extends Number> EQUALALL(final Iterable<? extends String> fields, final T[] values) {
         this(fields, Arrays.asList(values));

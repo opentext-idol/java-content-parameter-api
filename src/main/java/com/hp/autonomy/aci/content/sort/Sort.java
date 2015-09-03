@@ -15,9 +15,9 @@ package com.hp.autonomy.aci.content.sort;
  * The {@link SortBuilder} class can be used to combine sort expressions into more complex expressions. However, it is
  * often unnecessary to explicitly instantiate a {@link SortBuilder} as the {@code Sort} interface forces all specifiers
  * to provide support for combining expressions.
- * <p/>
+ * <p>
  * {@link SortBy} provides static fields and methods for working with the most common sort specifiers.
- * </p>
+ * <p>
  * Example:
  *
  * <pre>

@@ -107,9 +107,9 @@ public final class FieldTextBuilder extends AbstractFieldText {
      * Appends the specified fieldtext onto the builder using the AND operator. Parentheses are omitted where possible
      * and logical simplifications are made in certain cases:
      *
-     * <pre>(A AND A) => A</pre>
-     * <pre>(* AND A) => A</pre>
-     * <pre>(0 AND A) => 0</pre>
+     * <pre>(A AND A) {@literal =>} A</pre>
+     * <pre>(* AND A) {@literal =>} A</pre>
+     * <pre>(0 AND A) {@literal =>} 0</pre>
      *
      * @param fieldText A fieldtext expression or specifier.
      * @return {@code this}
@@ -141,9 +141,9 @@ public final class FieldTextBuilder extends AbstractFieldText {
      * Appends the specified fieldtext onto the builder using the OR operator. Parentheses are omitted where possible
      * and logical simplifications are made in certain cases:
      *
-     * <pre>(A OR A) => A</pre>
-     * <pre>(* OR A) => *</pre>
-     * <pre>(0 OR A) => A</pre>
+     * <pre>(A OR A) {@literal =>} A</pre>
+     * <pre>(* OR A) {@literal =>} *</pre>
+     * <pre>(0 OR A) {@literal =>} A</pre>
      *
      * @param fieldText A fieldtext expression or specifier.
      * @return {@code this}
@@ -171,9 +171,9 @@ public final class FieldTextBuilder extends AbstractFieldText {
      * Appends the specified fieldtext onto the builder using the XOR operator. Parentheses are omitted where possible
      * and logical simplifications are made in certain cases:
      *
-     * <pre>(A XOR A) => 0</pre>
-     * <pre>(* XOR A) => NOT A</pre>
-     * <pre>(0 XOR A) => A</pre>
+     * <pre>(A XOR A) {@literal =>} 0</pre>
+     * <pre>(* XOR A) {@literal =>} NOT A</pre>
+     * <pre>(0 XOR A) {@literal =>} A</pre>
      *
      * @param fieldText A fieldtext expression or specifier.
      * @return {@code this}.
@@ -209,7 +209,7 @@ public final class FieldTextBuilder extends AbstractFieldText {
      * Appends the specified fieldtext onto the builder using the WHEN operator. A simplification is made in the case
      * where the passed {@code fieldText} is equal to {@code this}:
      *
-     * <pre>(A WHEN A) => A</pre>
+     * <pre>(A WHEN A) {@literal =>} A</pre>
      *
      * @param fieldText A fieldtext expression or specifier.
      * @return {@code this}
