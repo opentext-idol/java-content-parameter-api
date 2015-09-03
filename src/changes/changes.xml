@@ -1,0 +1,16 @@
+<!--
+  ~ Copyright 2009-2015 Hewlett-Packard Development Company, L.P.
+  ~ Licensed under the MIT License (the "License"); you may not use this file except in compliance with the License.
+  -->
+
+<document xmlns="http://maven.apache.org/changes/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/changes/1.0.0 http://maven.apache.org/xsd/changes-1.0.0.xsd">
+    <body>
+        <release version="1.0.0" date="2015-09-03" description="Initial release">
+            <action dev="Alex Scown" type="add">
+                Initial open source release
+            </action>
+        </release>
+    </body>
+</document>
