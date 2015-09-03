@@ -11,7 +11,7 @@ HP Autonomy Content Parameter API is available from the central Maven repository
     <dependency>
         <groupId>com.hp.autonomy.aci.content</groupId>
         <artifactId>content-parameter-api</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0.0</version>
     </dependency>
 
 ## License
