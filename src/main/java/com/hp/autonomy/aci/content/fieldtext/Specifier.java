@@ -254,7 +254,7 @@ public class Specifier extends AbstractFieldText {
      *
      * @return The specifier's value.
      */
-    private String getValuesString() {
+    protected String getValuesString() {
         final StringBuilder builder = new StringBuilder();
 
         for(final String value : values) {
