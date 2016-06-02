@@ -8,10 +8,7 @@ package com.hp.autonomy.aci.content.ranges;
 import org.apache.commons.lang3.ArrayUtils;
 
 import java.io.Serializable;
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
 import java.util.Arrays;
-import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -43,15 +40,12 @@ public class Range implements Serializable {
     @Override
     public String toString() {
         if (ArrayUtils.isNotEmpty(ranges)) {
-            final DecimalFormat decimalFormat = new DecimalFormat("0", DecimalFormatSymbols.getInstance(Locale.ENGLISH));
-            decimalFormat.setMaximumFractionDigits(10);
-
             final StringBuilder stringBuilder = new StringBuilder("FIXED{");
             if (noMin) {
                 stringBuilder.append(".,");
             }
             for (final double range : ranges) {
-                stringBuilder.append(decimalFormat.format(range)).append(',');
+                stringBuilder.append(range).append(',');
             }
             stringBuilder.deleteCharAt(stringBuilder.length() - 1);
             if (noMax) {
