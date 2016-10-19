@@ -13,7 +13,7 @@ HPE Content Parameter API is available from the central Maven repository.
     <dependency>
         <groupId>com.hp.autonomy.aci.content</groupId>
         <artifactId>content-parameter-api</artifactId>
-        <version>2.0.0</version>
+        <version>2.1.0-SNAPSHOT</version>
     </dependency>
 
 ## License
