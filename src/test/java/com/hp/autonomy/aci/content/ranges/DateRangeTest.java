@@ -21,6 +21,18 @@ public class DateRangeTest {
     }
 
     @Test
+    public void rangeWithMillis() {
+        final String minString = "2017-05-12T12:58:00.123Z";
+        final ZonedDateTime min = ZonedDateTime.parse(minString);
+        final String maxString = "2017-05-12T12:58:01.456Z";
+        final ZonedDateTime max = ZonedDateTime.parse(maxString);
+        assertEquals(
+                "FIXEDDATE{2017-05-12T12:58:00Z,2017-05-12T12:58:01Z}:A_FIELD",
+                new DateRange("A_FIELD", Arrays.asList(min, max)).toString()
+        );
+    }
+
+    @Test
     public void wideRange() {
         final String minString = "0000-01-01T01:01:00Z";
         final ZonedDateTime min = ZonedDateTime.parse(minString);

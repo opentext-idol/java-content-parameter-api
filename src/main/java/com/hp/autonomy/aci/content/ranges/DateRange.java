@@ -10,6 +10,7 @@ import org.apache.commons.collections4.CollectionUtils;
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -63,6 +64,6 @@ public class DateRange implements Range {
 
     private String formatDate(final ZonedDateTime range) {
         // IDOL ISO date time does not have a year 0 whereas Java ISO date time does
-        return DateTimeFormatter.ISO_INSTANT.format(range.isBefore(oneAD) ? range.minusYears(1) : range);
+        return DateTimeFormatter.ISO_INSTANT.format((range.isBefore(oneAD) ? range.minusYears(1) : range).truncatedTo(ChronoUnit.SECONDS));
     }
 }
