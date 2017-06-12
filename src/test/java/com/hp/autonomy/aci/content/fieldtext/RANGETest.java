@@ -1,3 +1,8 @@
+/*
+ * Copyright 2016-2017 Hewlett Packard Enterprise Development Company, L.P.
+ * Licensed under the MIT License (the "License"); you may not use this file except in compliance with the License.
+ */
+
 package com.hp.autonomy.aci.content.fieldtext;
 
 import org.junit.Test;
@@ -44,16 +49,16 @@ public class RANGETest {
     @Test
     public void singleFieldDateWideRange() {
         final RANGE range = new RANGE("ns:field", ZonedDateTime.parse("0000-01-01T01:01:00Z"), ZonedDateTime.parse("3000-03-03T03:03:00Z"));
-        assertEquals("RANGE{-0001-01-01T01:01:00Z,3000-03-03T03:03:00Z}:ns%3Afield", range.toString());
-        assertEquals(Arrays.asList("-0001-01-01T01:01:00Z", "3000-03-03T03:03:00Z"), range.getValues());
+        assertEquals("RANGE{0000-01-01T01:01:00Z,3000-03-03T03:03:00Z}:ns%3Afield", range.toString());
+        assertEquals(Arrays.asList("0000-01-01T01:01:00Z", "3000-03-03T03:03:00Z"), range.getValues());
         assertEquals(Collections.singletonList("ns:field"), range.getFields());
     }
 
     @Test
     public void singleFieldDateMillis() {
         final RANGE range = new RANGE("ns:field", ZonedDateTime.parse("0000-01-01T01:01:00.123Z"), ZonedDateTime.parse("3000-03-03T03:03:00.456Z"));
-        assertEquals("RANGE{-0001-01-01T01:01:00Z,3000-03-03T03:03:00Z}:ns%3Afield", range.toString());
-        assertEquals(Arrays.asList("-0001-01-01T01:01:00Z", "3000-03-03T03:03:00Z"), range.getValues());
+        assertEquals("RANGE{0000-01-01T01:01:00Z,3000-03-03T03:03:00Z}:ns%3Afield", range.toString());
+        assertEquals(Arrays.asList("0000-01-01T01:01:00Z", "3000-03-03T03:03:00Z"), range.getValues());
         assertEquals(Collections.singletonList("ns:field"), range.getFields());
     }
 

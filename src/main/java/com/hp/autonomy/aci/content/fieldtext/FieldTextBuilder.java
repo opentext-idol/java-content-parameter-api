@@ -1,7 +1,8 @@
 /*
- * Copyright 2009-2015 Hewlett-Packard Development Company, L.P.
+ * Copyright 2009-2017 Hewlett Packard Enterprise Development Company, L.P.
  * Licensed under the MIT License (the "License"); you may not use this file except in compliance with the License.
  */
+
 package com.hp.autonomy.aci.content.fieldtext;
 
 import org.apache.commons.lang.Validate;
@@ -11,13 +12,13 @@ import static com.hp.autonomy.aci.content.fieldtext.FieldTexts.MATCHNOTHING;
 /**
  * <p>{@code FieldTextBuilder} allows for the building of complex fieldtext expressions from other fieldtext expressions
  * or specifiers. e.g.:
- *
+ * <p>
  * <pre>
  *    FieldTextBuilder builder = new FieldTextBuilder(new MATCH("MYFIELD", "VALUE"));
  *    builder.AND(new EQUAL("NUMERIC_FIELD", 6));</pre>
- *
+ * <p>
  * evaluates to:
- *
+ * <p>
  * <pre>    MATCH{VALUE}:MYFIELD+AND+EQUAL{6}:NUMERIC_FIELD</pre>
  *
  * Note that calls to {@code AND}, {@code OR}, {@code XOR} and {@code NOT} return the same builder on which they were
@@ -44,39 +45,37 @@ import static com.hp.autonomy.aci.content.fieldtext.FieldTexts.MATCHNOTHING;
  *
  * <pre>
  *    FieldTextBuilder builder = new FieldTextBuilder(new MATCH("FIELD", "VALUE"));</pre>
- *
+ * <p>
  * <p>or:
- *
+ * <p>
  * <pre>
  *    FieldTextBuilder builder = FieldTextBuilder.from(new MATCH("FIELD", "VALUE"));</pre>
- *
+ * <p>
  * <p>Example 2 - Creating a sequence of ORs with multiple expressions (likewise for AND and XOR):
- *
+ * <p>
  * <pre>
  *    FieldTextBuilder builder = FieldTexts.OR(
  *        new MATCH("FIELD", "VALUE"),
  *        new EQUAL("NUMERIC", 7, 8),
  *        new EXISTS("UUID")
  *    );</pre>
- *
+ * <p>
  * <p>Example 3 - Conditionally building ORs when none of the fieldtext is fixed (likewise for AND and XOR):
- *
+ * <p>
  * <pre>
  *    // Create a builder suitable for appending via OR
  *    FieldTextBuilder builder = FieldTexts.OR();
  *
  *    for (fieldText : fieldTextList) {
-          builder.OR(fieldText);
+ * builder.OR(fieldText);
  *    }
  *
  *    if (builder.isMatchNothing()) {
  *        // Nothing was added as part of the loop so the fieldtext won't match any documents
  *    }
  * </pre>
- *
  */
 public final class FieldTextBuilder extends AbstractFieldText {
-
     private final StringBuilder fieldTextString = new StringBuilder();
 
     private int componentCount;
@@ -88,8 +87,7 @@ public final class FieldTextBuilder extends AbstractFieldText {
     // Creating an empty FieldTextBuilder leads to confusing behaviour under boolean operators. Given this class is
     // final there's no need to worry about subclasses, so the static factory methods can be used instead to create
     // 'empty' builders
-    FieldTextBuilder() {
-    }
+    FieldTextBuilder() {}
 
     /**
      * Creates a {@code FieldTextBuilder} containing the specified fieldtext. The new object will not be backed by the
@@ -104,9 +102,22 @@ public final class FieldTextBuilder extends AbstractFieldText {
     }
 
     /**
+     * Converts a {@link FieldText} object into a {@code FieldTextBuilder}. This method can be more efficient than using
+     * the equivalent constructor but the returned object might be backed by the {@link FieldText} object provided.
+     *
+     * @param fieldText The fieldtext expression to convert
+     * @return An equivalent instance of {@code FieldTextBuilder}
+     */
+    public static FieldTextBuilder from(final FieldText fieldText) {
+        return (fieldText instanceof FieldTextBuilder)
+            ? (FieldTextBuilder)fieldText
+            : new FieldTextBuilder(fieldText);
+    }
+
+    /**
      * Appends the specified fieldtext onto the builder using the AND operator. Parentheses are omitted where possible
      * and logical simplifications are made in certain cases:
-     *
+     * <p>
      * <pre>(A AND A) {@literal =>} A</pre>
      * <pre>(* AND A) {@literal =>} A</pre>
      * <pre>(0 AND A) {@literal =>} 0</pre>
@@ -118,19 +129,19 @@ public final class FieldTextBuilder extends AbstractFieldText {
     public FieldTextBuilder AND(final FieldText fieldText) {
         Validate.notNull(fieldText, "FieldText should not be null");
 
-        if (fieldText == this || toString().equals(fieldText.toString())) {
+        if(fieldText == this || toString().equals(fieldText.toString())) {
             return this;
         }
 
-        if (isEmpty()) {
+        if(isEmpty()) {
             return setFieldText(fieldText);
         }
 
-        if (fieldText.isEmpty()) {
+        if(fieldText.isEmpty()) {
             return this;
         }
 
-        if (MATCHNOTHING.equals(this) || MATCHNOTHING.equals(fieldText)) {
+        if(MATCHNOTHING.equals(this) || MATCHNOTHING.equals(fieldText)) {
             return setFieldText(MATCHNOTHING);
         }
 
@@ -140,7 +151,7 @@ public final class FieldTextBuilder extends AbstractFieldText {
     /**
      * Appends the specified fieldtext onto the builder using the OR operator. Parentheses are omitted where possible
      * and logical simplifications are made in certain cases:
-     *
+     * <p>
      * <pre>(A OR A) {@literal =>} A</pre>
      * <pre>(* OR A) {@literal =>} *</pre>
      * <pre>(0 OR A) {@literal =>} A</pre>
@@ -152,15 +163,15 @@ public final class FieldTextBuilder extends AbstractFieldText {
     public FieldTextBuilder OR(final FieldText fieldText) {
         Validate.notNull(fieldText, "FieldText should not be null");
 
-        if (fieldText == this || toString().equals(fieldText.toString())) {
+        if(fieldText == this || toString().equals(fieldText.toString())) {
             return this;
         }
 
-        if (isEmpty() || MATCHNOTHING.equals(fieldText)) {
+        if(isEmpty() || MATCHNOTHING.equals(fieldText)) {
             return this;
         }
 
-        if (fieldText.isEmpty() || MATCHNOTHING.equals(this)) {
+        if(fieldText.isEmpty() || MATCHNOTHING.equals(this)) {
             return setFieldText(fieldText);
         }
 
@@ -170,7 +181,7 @@ public final class FieldTextBuilder extends AbstractFieldText {
     /**
      * Appends the specified fieldtext onto the builder using the XOR operator. Parentheses are omitted where possible
      * and logical simplifications are made in certain cases:
-     *
+     * <p>
      * <pre>(A XOR A) {@literal =>} 0</pre>
      * <pre>(* XOR A) {@literal =>} NOT A</pre>
      * <pre>(0 XOR A) {@literal =>} A</pre>
@@ -182,23 +193,23 @@ public final class FieldTextBuilder extends AbstractFieldText {
     public FieldTextBuilder XOR(final FieldText fieldText) {
         Validate.notNull(fieldText, "FieldText should not be null");
 
-        if (fieldText == this || toString().equals(fieldText.toString())) {
+        if(fieldText == this || toString().equals(fieldText.toString())) {
             return setFieldText(MATCHNOTHING);
         }
 
-        if (isEmpty()) {
+        if(isEmpty()) {
             return setFieldText(fieldText).NOT();
         }
 
-        if (fieldText.isEmpty()) {
+        if(fieldText.isEmpty()) {
             return NOT();
         }
 
-        if (MATCHNOTHING.equals(this)) {
+        if(MATCHNOTHING.equals(this)) {
             return setFieldText(fieldText);
         }
 
-        if (MATCHNOTHING.equals(fieldText)) {
+        if(MATCHNOTHING.equals(fieldText)) {
             return this;
         }
 
@@ -208,7 +219,7 @@ public final class FieldTextBuilder extends AbstractFieldText {
     /**
      * Appends the specified fieldtext onto the builder using the WHEN operator. A simplification is made in the case
      * where the passed {@code fieldText} is equal to {@code this}:
-     *
+     * <p>
      * <pre>(A WHEN A) {@literal =>} A</pre>
      *
      * @param fieldText A fieldtext expression or specifier.
@@ -220,7 +231,7 @@ public final class FieldTextBuilder extends AbstractFieldText {
         Validate.isTrue(fieldText.size() >= 1, "FieldText must have a size greater or equal to 1");
 
         if(size() < 1) {
-            throw new IllegalStateException("Size must be greater or equal to 1");
+            throw new IllegalStateException("Size must be greater than or equal to 1");
         }
 
         // Here we assume that A WHEN A => A but is there an edge case where this doesn't work?
@@ -238,7 +249,7 @@ public final class FieldTextBuilder extends AbstractFieldText {
     /**
      * Appends the specified fieldtext onto the builder using the WHEN<i>n</i> operator.
      *
-     * @param depth The <i>n</i> in WHEN<i>n</i>
+     * @param depth     The <i>n</i> in WHEN<i>n</i>
      * @param fieldText A fieldtext expression or specifier.
      * @return {@code this}.
      */
@@ -250,7 +261,7 @@ public final class FieldTextBuilder extends AbstractFieldText {
         Validate.isTrue(fieldText.size() >= 1, "FieldText must have a size greater or equal to 1");
 
         if(size() < 1) {
-            throw new IllegalStateException("Size must be greater or equal to 1");
+            throw new IllegalStateException("Size must be greater than or equal to 1");
         }
 
         // We omit this 'optimization' because for large n it doesn't work, X WHENn A => 0, even if X = A
@@ -290,27 +301,25 @@ public final class FieldTextBuilder extends AbstractFieldText {
         Validate.isTrue(fieldText != this);
 
         // Optimized case when fieldText is a FieldTextBuilder
-        if (fieldText instanceof FieldTextBuilder) {
+        if(fieldText instanceof FieldTextBuilder) {
             return binaryOp(operator, (FieldTextBuilder)fieldText);
         }
 
         // Special case when we're empty
-        if (componentCount == 0) {
+        if(componentCount == 0) {
             fieldTextString.append(fieldText.toString());
 
-            if (fieldText.size() > 1) {
+            if(fieldText.size() > 1) {
                 lastOperator = "";
             }
-        }
-        else {
+        } else {
             // Add the NOTs, parentheses and operator
             addOperator(operator);
 
             // Size 1 means a single specifier, so no parentheses
-            if (fieldText.size() == 1) {
+            if(fieldText.size() == 1) {
                 fieldTextString.append(fieldText.toString());
-            }
-            else {
+            } else {
                 fieldTextString.append('(').append(fieldText.toString()).append(')');
             }
         }
@@ -330,21 +339,19 @@ public final class FieldTextBuilder extends AbstractFieldText {
      */
     private FieldTextBuilder binaryOp(final String operator, final FieldTextBuilder fieldText) {
         // Special case when we're empty
-        if (componentCount == 0) {
+        if(componentCount == 0) {
             // Just copy the argument
             fieldTextString.append(fieldText.fieldTextString);
             lastOperator = fieldText.lastOperator;
             not = fieldText.not;
             componentCount = fieldText.componentCount;
-        }
-        else {
+        } else {
             // Add the NOTs, parentheses and operator
             addOperator(operator);
 
-            if (fieldText.lastOperator == null || fieldText.lastOperator.equals(operator) || fieldText.not) {
+            if(fieldText.lastOperator == null || fieldText.lastOperator.equals(operator) || fieldText.not) {
                 fieldTextString.append(fieldText.toString());
-            }
-            else {
+            } else {
                 fieldTextString.append('(').append(fieldText.toString()).append(')');
             }
 
@@ -365,22 +372,20 @@ public final class FieldTextBuilder extends AbstractFieldText {
         // This should never happen but sanity check...
         Validate.notNull(operator);
 
-        if (lastOperator == null) {
+        if(lastOperator == null) {
             lastOperator = operator;
         }
 
         /* Logic to determine whether to put parentheses around the existing fieldtext. This is tied to the use of the
          * NOT operator as it also adds parentheses.
          */
-        if (not) {
-            if (componentCount == 1) {
+        if(not) {
+            if(componentCount == 1) {
                 fieldTextString.insert(0, "NOT+");
-            }
-            else {
+            } else {
                 fieldTextString.insert(0, "NOT(").append(')');
             }
-        }
-        else if (!lastOperator.equals(operator)) {
+        } else if(!lastOperator.equals(operator)) {
             fieldTextString.insert(0, '(').append(')');
         }
 
@@ -399,11 +404,11 @@ public final class FieldTextBuilder extends AbstractFieldText {
         // NOT * => 0
         // NOT 0 => *
 
-        if (isEmpty()) {
+        if(isEmpty()) {
             return setFieldText(MATCHNOTHING);
         }
 
-        if (MATCHNOTHING.equals(this)) {
+        if(MATCHNOTHING.equals(this)) {
             return clear();
         }
 
@@ -438,11 +443,11 @@ public final class FieldTextBuilder extends AbstractFieldText {
      */
     @Override
     public String toString() {
-        if (!not) {
+        if(!not) {
             return fieldTextString.toString();
         }
 
-        if (componentCount == 1) {
+        if(componentCount == 1) {
             return "NOT+" + fieldTextString;
         }
 
@@ -472,16 +477,4 @@ public final class FieldTextBuilder extends AbstractFieldText {
     public boolean isMatchNothing() {
         return equals(MATCHNOTHING);
     }
-
-    /**
-     * Converts a {@link FieldText} object into a {@code FieldTextBuilder}. This method can be more efficient than using
-     * the equivalent constructor but the returned object might be backed by the {@link FieldText} object provided.
-     *
-     * @param fieldText The fieldtext expression to convert
-     * @return An equivalent instance of {@code FieldTextBuilder}
-     */
-    public static FieldTextBuilder from(final FieldText fieldText) {
-        return (fieldText instanceof FieldTextBuilder) ? (FieldTextBuilder)fieldText : new FieldTextBuilder(fieldText);
-    }
-
 }

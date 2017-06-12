@@ -1,8 +1,12 @@
+/*
+ * Copyright 2016-2017 Hewlett Packard Enterprise Development Company, L.P.
+ * Licensed under the MIT License (the "License"); you may not use this file except in compliance with the License.
+ */
+
 package com.hp.autonomy.aci.content.fieldtext;
 
 import org.apache.commons.lang.StringUtils;
 
-import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
@@ -12,8 +16,6 @@ import java.util.Optional;
 
 @SuppressWarnings({"WeakerAccess", "ClassWithTooManyConstructors"})
 public class RANGE extends Specifier {
-    private static final ZonedDateTime oneAD = ZonedDateTime.of(1, 1, 1, 0, 0, 0, 0, ZoneOffset.UTC);
-
     public RANGE(final String field, final Long min, final Long max, final Type type) {
         this(Collections.singletonList(field), min, max, type);
     }
@@ -42,11 +44,10 @@ public class RANGE extends Specifier {
         return Optional.ofNullable(param).map(type::getParam).orElse(".");
     }
 
-    private static String formatDate(final ZonedDateTime maybeParam) {
+    private static String formatDate(final ZonedDateTime param) {
         // IDOL ISO date time does not have a year 0 whereas Java ISO date time does
-        return Optional.ofNullable(maybeParam)
-                .map(param -> DateTimeFormatter.ISO_INSTANT.format((param.isBefore(oneAD) ? param.minusYears(1) : param).truncatedTo(ChronoUnit.SECONDS)))
-                .orElse(null);
+        return DateTimeFormatter.ISO_INSTANT
+            .format(param.truncatedTo(ChronoUnit.SECONDS));
     }
 
     @Override
@@ -54,7 +55,6 @@ public class RANGE extends Specifier {
         return StringUtils.join(getValues(), ',');
     }
 
-    @SuppressWarnings("InnerClassTooDeeplyNested")
     public enum Type {
         DAYS {
             @Override
