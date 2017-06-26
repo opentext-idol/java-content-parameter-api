@@ -1,0 +1,10 @@
+com.hp.autonomy.aci.content.database
+com.hp.autonomy.aci.content.fieldtext
+com.hp.autonomy.aci.content.identifier
+com.hp.autonomy.aci.content.identifier.id
+com.hp.autonomy.aci.content.identifier.reference
+com.hp.autonomy.aci.content.identifier.stateid
+com.hp.autonomy.aci.content.internal
+com.hp.autonomy.aci.content.printfields
+com.hp.autonomy.aci.content.ranges
+com.hp.autonomy.aci.content.sort

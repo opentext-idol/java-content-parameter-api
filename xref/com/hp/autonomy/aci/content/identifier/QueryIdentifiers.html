@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>QueryIdentifiers xref</title>
+<link type="text/css" rel="stylesheet" href="../../../../../../stylesheet.css" />
+</head>
+<body>
+<div id="overview"><a href="../../../../../../../apidocs/com/hp/autonomy/aci/content/identifier/QueryIdentifiers.html">View Javadoc</a></div><pre>
+
+<a class="jxr_linenumber" name="1" href="#1">1</a>   <em class="jxr_comment">/*</em>
+<a class="jxr_linenumber" name="2" href="#2">2</a>   <em class="jxr_comment"> * Copyright 2009-2015 Hewlett-Packard Development Company, L.P.</em>
+<a class="jxr_linenumber" name="3" href="#3">3</a>   <em class="jxr_comment"> * Licensed under the MIT License (the "License"); you may not use this file except in compliance with the License.</em>
+<a class="jxr_linenumber" name="4" href="#4">4</a>   <em class="jxr_comment"> */</em>
+<a class="jxr_linenumber" name="5" href="#5">5</a>   <strong class="jxr_keyword">package</strong> com.hp.autonomy.aci.content.identifier;
+<a class="jxr_linenumber" name="6" href="#6">6</a>   
+<a class="jxr_linenumber" name="7" href="#7">7</a>   <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="8" href="#8">8</a>   <em class="jxr_javadoccomment"> * {@code QueryIdentifiers} are document identifiers that can be used to filter a &lt;tt&gt;query&lt;/tt&gt; action using a 'match'</em>
+<a class="jxr_linenumber" name="9" href="#9">9</a>   <em class="jxr_javadoccomment"> * parameter, such as &lt;tt&gt;matchreference&lt;/tt&gt; or &lt;tt&gt;statematchid&lt;/tt&gt;. e.g.:</em>
+<a class="jxr_linenumber" name="10" href="#10">10</a>  <em class="jxr_javadoccomment"> *</em>
+<a class="jxr_linenumber" name="11" href="#11">11</a>  <em class="jxr_javadoccomment"> * &lt;pre&gt;</em>
+<a class="jxr_linenumber" name="12" href="#12">12</a>  <em class="jxr_javadoccomment"> *    QueryIdentifiers identifiers = ...;</em>
+<a class="jxr_linenumber" name="13" href="#13">13</a>  <em class="jxr_javadoccomment"> *</em>
+<a class="jxr_linenumber" name="14" href="#14">14</a>  <em class="jxr_javadoccomment"> *    AciParameters parameters = new AciParameters("query");</em>
+<a class="jxr_linenumber" name="15" href="#15">15</a>  <em class="jxr_javadoccomment"> *    parameters.add("text", "*");</em>
+<a class="jxr_linenumber" name="16" href="#16">16</a>  <em class="jxr_javadoccomment"> *    parameters.add(identifiers.getMatchParameterName(), identifiers);</em>
+<a class="jxr_linenumber" name="17" href="#17">17</a>  <em class="jxr_javadoccomment"> * &lt;/pre&gt;</em>
+<a class="jxr_linenumber" name="18" href="#18">18</a>  <em class="jxr_javadoccomment"> */</em>
+<a class="jxr_linenumber" name="19" href="#19">19</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">interface</strong> <a href="../../../../../../com/hp/autonomy/aci/content/identifier/QueryIdentifiers.html">QueryIdentifiers</a> <strong class="jxr_keyword">extends</strong> <a href="../../../../../../com/hp/autonomy/aci/content/identifier/IndexingIdentifiers.html">IndexingIdentifiers</a> {
+<a class="jxr_linenumber" name="20" href="#20">20</a>      String DATABASE_MATCH = <span class="jxr_string">"databasematch"</span>;
+<a class="jxr_linenumber" name="21" href="#21">21</a>      String MATCH_ID = <span class="jxr_string">"matchid"</span>;
+<a class="jxr_linenumber" name="22" href="#22">22</a>      String MATCH_REFERENCE = <span class="jxr_string">"matchreference"</span>;
+<a class="jxr_linenumber" name="23" href="#23">23</a>      String STATE_MATCH_ID = <span class="jxr_string">"statematchid"</span>;
+<a class="jxr_linenumber" name="24" href="#24">24</a>  
+<a class="jxr_linenumber" name="25" href="#25">25</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="26" href="#26">26</a>  <em class="jxr_javadoccomment">     * The name of the 'match' parameter to use for this set of identifiers, such as &lt;tt&gt;matchreference&lt;/tt&gt;.</em>
+<a class="jxr_linenumber" name="27" href="#27">27</a>  <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="28" href="#28">28</a>  <em class="jxr_javadoccomment">     * @return The &lt;tt&gt;query&lt;/tt&gt; 'match' parameter name</em>
+<a class="jxr_linenumber" name="29" href="#29">29</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="30" href="#30">30</a>      String getMatchParameterName();
+<a class="jxr_linenumber" name="31" href="#31">31</a>  
+<a class="jxr_linenumber" name="32" href="#32">32</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="33" href="#33">33</a>  <em class="jxr_javadoccomment">     * The string representation of this identifier, suitable for use as the value of a 'match' parameter on a</em>
+<a class="jxr_linenumber" name="34" href="#34">34</a>  <em class="jxr_javadoccomment">     * &lt;tt&gt;query&lt;/tt&gt; action.</em>
+<a class="jxr_linenumber" name="35" href="#35">35</a>  <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="36" href="#36">36</a>  <em class="jxr_javadoccomment">     * @return The &lt;tt&gt;query&lt;/tt&gt; 'match' parameter value</em>
+<a class="jxr_linenumber" name="37" href="#37">37</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="38" href="#38">38</a>      @Override
+<a class="jxr_linenumber" name="39" href="#39">39</a>      String toString();
+<a class="jxr_linenumber" name="40" href="#40">40</a>  }
+</pre>
+<hr/><div id="footer">This page was automatically generated by <a href="http://maven.apache.org/">Maven</a></div></body>
+</html>
+
