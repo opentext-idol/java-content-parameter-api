@@ -1,29 +1,29 @@
 /*
- * Copyright 2009-2015 Hewlett-Packard Development Company, L.P.
+ * Copyright 2009-2017 Hewlett Packard Enterprise Development Company, L.P.
  * Licensed under the MIT License (the "License"); you may not use this file except in compliance with the License.
  */
+
 package com.hp.autonomy.aci.content.fieldtext;
 
 import java.util.Arrays;
 
 /**
  * <p>Utility methods for working with fieldtext.
- *
+ * <p>
  * <p>The factory methods for creating {@link FieldTextBuilder}s are included in this class as they share names with
  * instance methods of that class, which could lead to subtle problems accidentally invoking the static methods from
- * an instance. 
+ * an instance.
  */
 public final class FieldTexts {
     /**
      * A fieldtext specifier that won't match any documents. This is useful when implementing boolean logic and an
      * empty initial state is required. It usually isn't necessary to access this field directly.
-     *
+     * <p>
      * <p>See also {@link FieldTextBuilder#isMatchNothing}.
      */
     public static final FieldText MATCHNOTHING = new MATCH("autn_date", "MATCHNOTHING");
 
-    private FieldTexts() {
-    }
+    private FieldTexts() {}
 
     /**
      * Creates a new {@link FieldTextBuilder} and appends the specified fieldtext expressions, separated using AND
@@ -48,7 +48,7 @@ public final class FieldTexts {
     public static FieldTextBuilder AND(final Iterable<? extends FieldText> fieldTexts) {
         final FieldTextBuilder builder = new FieldTextBuilder();
 
-        for (final FieldText fieldText : fieldTexts) {
+        for(final FieldText fieldText : fieldTexts) {
             builder.AND(fieldText);
         }
 
@@ -78,7 +78,7 @@ public final class FieldTexts {
     public static FieldTextBuilder OR(final Iterable<? extends FieldText> fieldTexts) {
         final FieldTextBuilder builder = new FieldTextBuilder(MATCHNOTHING);
 
-        for (final FieldText fieldText : fieldTexts) {
+        for(final FieldText fieldText : fieldTexts) {
             builder.OR(fieldText);
         }
 
@@ -108,7 +108,7 @@ public final class FieldTexts {
     public static FieldTextBuilder XOR(final Iterable<? extends FieldText> fieldTexts) {
         final FieldTextBuilder builder = new FieldTextBuilder(MATCHNOTHING);
 
-        for (final FieldText fieldText : fieldTexts) {
+        for(final FieldText fieldText : fieldTexts) {
             builder.XOR(fieldText);
         }
 

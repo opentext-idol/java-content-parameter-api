@@ -67,10 +67,6 @@
         <url>https://github.com/hpautonomy/java-content-parameter-api/issues</url>
     </issueManagement>
 
-    <properties>
-        <java.version>1.6</java.version>
-    </properties>
-
     <build>
         <plugins>
             <plugin>
@@ -87,8 +83,8 @@
                 <configuration>
                     <signature>
                         <groupId>org.codehaus.mojo.signature</groupId>
-                        <artifactId>java16</artifactId>
-                        <version>1.1</version>
+                        <artifactId>java18</artifactId>
+                        <version>1.0</version>
                     </signature>
                 </configuration>
             </plugin>
@@ -146,11 +142,6 @@
             <version>5.0.0</version>
         </dependency>
         <dependency>
-            <groupId>joda-time</groupId>
-            <artifactId>joda-time</artifactId>
-            <version>2.3</version>
-        </dependency>
-        <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>3.4</version>
@@ -173,5 +164,4 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
 </project>

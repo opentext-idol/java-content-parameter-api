@@ -1,7 +1,8 @@
 /*
- * Copyright 2009-2015 Hewlett-Packard Development Company, L.P.
+ * Copyright 2009-2017 Hewlett Packard Enterprise Development Company, L.P.
  * Licensed under the MIT License (the "License"); you may not use this file except in compliance with the License.
  */
+
 package com.hp.autonomy.aci.content.identifier.stateid;
 
 import org.apache.commons.lang.Validate;
@@ -27,7 +28,7 @@ public class Range extends AbstractStateRange {
      * Creates a new {@code Range} instance with the specified zero-based index range.
      *
      * @param start The start index of the range
-     * @param end The end index of the range
+     * @param end   The end index of the range
      */
     public Range(final int start, final int end) {
         Validate.isTrue(start > -1, "Start must be non-negative");
@@ -35,6 +36,27 @@ public class Range extends AbstractStateRange {
 
         this.start = start;
         this.end = end;
+    }
+
+    /**
+     * Factory method for creating a {@code Range} to represent the first page.
+     *
+     * @param size The page size
+     * @return The first page range
+     */
+    public static Range first(final int size) {
+        return page(1, size);
+    }
+
+    /**
+     * Factory method for creating a {@code Range} to represent a particular page.
+     *
+     * @param number The one-based page number
+     * @param size   The size of each page
+     * @return The range for the page
+     */
+    public static Range page(final int number, final int size) {
+        return new Range(size * (number - 1), size * number - 1);
     }
 
     /**
@@ -93,31 +115,10 @@ public class Range extends AbstractStateRange {
 
     @Override
     public String toString() {
-        if (start == end) {
+        if(start == end) {
             return String.valueOf(start);
         }
 
         return start + "-" + end;
-    }
-
-    /**
-     * Factory method for creating a {@code Range} to represent the first page.
-     *
-     * @param size The page size
-     * @return The first page range
-     */
-    public static Range first(final int size) {
-        return page(1, size);
-    }
-
-    /**
-     * Factory method for creating a {@code Range} to represent a particular page.
-     *
-     * @param number The one-based page number
-     * @param size The size of each page
-     * @return The range for the page
-     */
-    public static Range page(final int number, final int size) {
-        return new Range(size * (number - 1), size * number - 1);
     }
 }
