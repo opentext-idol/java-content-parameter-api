@@ -1,8 +1,12 @@
 /*
- * Copyright 2009-2015 Hewlett-Packard Development Company, L.P.
+ * Copyright 2009-2017 Hewlett Packard Enterprise Development Company, L.P.
  * Licensed under the MIT License (the "License"); you may not use this file except in compliance with the License.
  */
+
 package com.hp.autonomy.aci.content.fieldtext;
+
+import org.junit.Before;
+import org.junit.Test;
 
 import static com.hp.autonomy.aci.content.fieldtext.FieldTexts.AND;
 import static com.hp.autonomy.aci.content.fieldtext.FieldTexts.MATCHNOTHING;
@@ -12,8 +16,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
-import org.junit.Before;
-import org.junit.Test;
 
 /**
  * Tests for the <tt>FieldTextBuilder</tt> class.
@@ -23,7 +25,6 @@ import org.junit.Test;
  * @version $Revision$ $Date$
  */
 public class FieldTextBuilderTest {
-
     private MATCH match1;
     private MATCH match2;
     private EQUAL equal;
@@ -87,7 +88,7 @@ public class FieldTextBuilderTest {
         assertEquals("hashCode()", "".hashCode(), builder.hashCode());
 
         final String match1String = "MATCH{Value}:FIELD";
-        
+
         builder = new FieldTextBuilder(match1);
         assertEquals("toString()", match1String, builder.toString());
         assertEquals("size()", 1, builder.size());
@@ -95,7 +96,7 @@ public class FieldTextBuilderTest {
         assertEquals("hashCode()", match1String.hashCode(), builder.hashCode());
 
         final String match1AND2String = "MATCH{Value}:FIELD+AND+MATCH{Contents}:TAG";
-        
+
         builder = new FieldTextBuilder(match1.AND(match2));
         assertEquals("toString()", match1AND2String, builder.toString());
         assertEquals("size()", 2, builder.size());
@@ -111,7 +112,7 @@ public class FieldTextBuilderTest {
     @Test
     public void testAND() {
         final String tripleAND = "MATCH{Value}:FIELD+AND+MATCH{Contents}:TAG+AND+EQUAL{7.8}:NUMBER";
-        
+
         FieldText builder = new FieldTextBuilder(match1).AND(match2).AND(equal);
         assertEquals("toString()", tripleAND, builder.toString());
         assertEquals("size()", 3, builder.size());
@@ -166,7 +167,7 @@ public class FieldTextBuilderTest {
     @Test
     public void testOR() {
         final String tripleOR = "MATCH{Value}:FIELD+OR+MATCH{Contents}:TAG+OR+EQUAL{7.8}:NUMBER";
-        
+
         FieldText builder = new FieldTextBuilder(match1).OR(match2).OR(equal);
         assertEquals("toString()", tripleOR, builder.toString());
         assertEquals("size()", 3, builder.size());
@@ -259,7 +260,7 @@ public class FieldTextBuilderTest {
         assertEquals("size()", 1, builder2.size());
         assertFalse("isEmpty()", builder2.isEmpty());
     }
-    
+
     @Test(expected = IllegalArgumentException.class)
     public void testANDBuilderXORNullException() {
         AND().XOR(null);
@@ -278,13 +279,13 @@ public class FieldTextBuilderTest {
     @Test
     public void testNOT() {
         final String complexNOT1 = "NOT(NOT+MATCH{Value}:FIELD+AND+NOT+MATCH{Contents}:TAG)";
-        
+
         final FieldText builder1 = new FieldTextBuilder(match1).NOT().AND(AND()).AND(new FieldTextBuilder(match2).NOT()).NOT();
         assertEquals("toString()", complexNOT1, builder1.toString());
         assertEquals("size()", 2, builder1.size());
         assertFalse("isEmpty()", builder1.isEmpty());
         assertEquals("hashCode()", complexNOT1.hashCode(), builder1.hashCode());
-        
+
         final String complexNOT1NOT = "NOT+MATCH{Value}:FIELD+AND+NOT+MATCH{Contents}:TAG";
         builder1.NOT();
 
@@ -292,9 +293,9 @@ public class FieldTextBuilderTest {
         assertEquals("size()", 2, builder1.size());
         assertFalse("isEmpty()", builder1.isEmpty());
         assertEquals("hashCode()", complexNOT1NOT.hashCode(), builder1.hashCode());
-        
+
         final String complexNOT2 = "NOT(MATCH{Value}:FIELD+AND+MATCH{Contents}:TAG)+AND+NOT+EQUAL{7.8}:NUMBER";
-        
+
         final FieldText builder2 = new FieldTextBuilder(match1).AND(match2).NOT().AND(new FieldTextBuilder(equal).NOT());
         assertEquals("toString()", complexNOT2, builder2.toString());
         assertEquals("size()", 3, builder2.size());
@@ -319,41 +320,41 @@ public class FieldTextBuilderTest {
         assertTrue("isEmpty()", builder.isEmpty());
         assertEquals("hashCode()", "".hashCode(), builder.hashCode());
     }
-    
+
     @Test
     public void testMixed() {
         final String mixed1 = "(MATCH{Value}:FIELD+AND+MATCH{Contents}:TAG+AND+EQUAL{7.8}:NUMBER)+OR+(NOT+MATCH{Value}:FIELD+AND+NOT+MATCH{Contents}:TAG)";
-        
+
         final FieldText builder1 = new FieldTextBuilder(match1).AND(match2).AND(equal).OR(match1.NOT().AND(match2.NOT()));
         assertEquals("toString()", mixed1, builder1.toString());
         assertEquals("size()", 5, builder1.size());
         assertFalse("isEmpty()", builder1.isEmpty());
         assertEquals("hashCode()", mixed1.hashCode(), builder1.hashCode());
-        
+
         final FieldText builder2 = new FieldTextBuilder(match1.AND(match2.AND(equal))).OR(AND().AND(match1.NOT().AND(match2.NOT())));
         assertEquals("toString()", mixed1, builder2.toString());
         assertEquals("size()", 5, builder2.size());
         assertFalse("isEmpty()", builder2.isEmpty());
         assertEquals("hashCode()", mixed1.hashCode(), builder2.hashCode());
-        
+
         final String mixed2 = "MATCH{s}:TEXT+AND+EQUAL{7}:NUM";
-        
+
         final FieldText builder3 = new FieldTextBuilder(mockMatchEqual);
         assertEquals("toString()", mixed2, builder3.toString());
         assertEquals("size()", 2, builder3.size());
         assertFalse("isEmpty()", builder3.isEmpty());
         assertEquals("hashCode()", mixed2.hashCode(), builder3.hashCode());
-        
+
         final String mixed3 = "MATCH{Value}:FIELD+AND+(MATCH{s}:TEXT+AND+EQUAL{7}:NUM)";
-        
+
         final FieldText builder4 = new FieldTextBuilder(match1).AND(mockMatchEqual);
         assertEquals("toString()", mixed3, builder4.toString());
         assertEquals("size()", 3, builder4.size());
         assertFalse("isEmpty()", builder4.isEmpty());
         assertEquals("hashCode()", mixed3.hashCode(), builder4.hashCode());
-        
+
         final String mixed4 = "(MATCH{s}:TEXT+AND+EQUAL{7}:NUM)+AND+MATCH{Value}:FIELD";
-        
+
         final FieldText builder5 = new FieldTextBuilder(mockMatchEqual).AND(match1);
         assertEquals("toString()", mixed4, builder5.toString());
         assertEquals("size()", 3, builder5.size());
@@ -592,7 +593,7 @@ public class FieldTextBuilderTest {
         assertEquals("size()", 1, builder2.size());
         assertFalse("isEmpty()", builder2.isEmpty());
     }
-    
+
     @Test(expected = IllegalArgumentException.class)
     public void testWHENnWithInvalidDepth() {
         new FieldTextBuilder(match1).WHEN(0, match2);
@@ -600,7 +601,6 @@ public class FieldTextBuilderTest {
 
     @Test
     public void testWHENandANDMix() {
-        // TODO: Is this case actually well-defined or should we throw an IllegalStateException?
         final FieldTextBuilder builder1 = new FieldTextBuilder(match1);
         builder1.WHEN(match2).AND(equal);
 
@@ -617,16 +617,6 @@ public class FieldTextBuilderTest {
         AND().WHEN(2, match1);
     }
 
-//    @Test(expected = IllegalStateException.class)
-//    public void testWHENThisTooBig() {
-//        new FieldTextBuilder(match1.AND(match2)).WHEN(equal);
-//    }
-
-//    @Test(expected = IllegalStateException.class)
-//    public void testWHENnThisTooBig() {
-//        new FieldTextBuilder(match1.AND(match2)).WHEN(2, equal);
-//    }
-
     @Test(expected = IllegalArgumentException.class)
     public void testWHENArgumentTooSmall() {
         new FieldTextBuilder(match1).WHEN(AND());
@@ -636,16 +626,6 @@ public class FieldTextBuilderTest {
     public void testWHENnArgumentTooSmall() {
         new FieldTextBuilder(match1).WHEN(2, AND());
     }
-
-//    @Test(expected = IllegalArgumentException.class)
-//    public void testWHENArgumentTooBig() {
-//        new FieldTextBuilder(equal).WHEN(match1.AND(match2));
-//    }
-
-//    @Test(expected = IllegalArgumentException.class)
-//    public void testWHENnArgumentTooBig() {
-//        new FieldTextBuilder(equal).WHEN(2, match1.AND(match2));
-//    }
 
     @Test
     public void testFromSpecifier() {
