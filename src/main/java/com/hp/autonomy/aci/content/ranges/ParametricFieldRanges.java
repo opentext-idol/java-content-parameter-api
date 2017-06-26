@@ -16,7 +16,7 @@ public class ParametricFieldRanges {
     private final ArrayList<ParametricFieldRange> ranges;
 
     public ParametricFieldRanges(final List<? extends ParametricFieldRange> ranges) {
-        this.ranges = new ArrayList<>(ListUtils.emptyIfNull(ranges));
+        this.ranges = new ArrayList<ParametricFieldRange>(ListUtils.emptyIfNull(ranges));
     }
 
     @Override
