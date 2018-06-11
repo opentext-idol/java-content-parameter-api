@@ -24,8 +24,8 @@
     </description>
 
     <organization>
-        <name>Hewlett-Packard Development Company, L.P.</name>
-        <url>http://www.hp.com/</url>
+        <name>Micro Focus</name>
+        <url>http://www.microfocus.com/</url>
     </organization>
 
     <licenses>
@@ -37,10 +37,13 @@
 
     <developers>
         <developer>
+            <name>Tung Jin Chew</name>
+            <email>tung-jin.chew@microfocus.com</email>
+            <organization>Micro Focus</organization>
+            <organizationUrl>http://www.microfocus.com</organizationUrl>
+        </developer>
+        <developer>
             <name>Alex Scown</name>
-            <email>alex.scown@hp.com</email>
-            <organization>HP</organization>
-            <organizationUrl>http://www.hp.com</organizationUrl>
         </developer>
         <developer>
             <name>Darrell Newman</name>
@@ -57,14 +60,14 @@
     </contributors>
 
     <scm>
-        <connection>scm:git:git@github.com:hpautonomy/java-content-parameter-api.git</connection>
-        <developerConnection>scm:git:git@github.com:hpautonomy/java-content-parameter-api.git</developerConnection>
-        <url>git@github.com:hpautonomy/java-content-parameter-api.git</url>
+        <connection>scm:git:git@github.com:microfocus-idol/java-content-parameter-api.git</connection>
+        <developerConnection>scm:git:git@github.com:microfocus-idol/java-content-parameter-api.git</developerConnection>
+        <url>git@github.com:microfocus-idol/java-content-parameter-api.git</url>
     </scm>
 
     <issueManagement>
         <system>GitHub</system>
-        <url>https://github.com/hpautonomy/java-content-parameter-api/issues</url>
+        <url>https://github.com/microfocus-idol/java-content-parameter-api/issues</url>
     </issueManagement>
 
     <build>

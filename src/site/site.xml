@@ -36,7 +36,7 @@
     <custom>
         <fluidoSkin>
             <gitHub>
-                <projectId>hpautonomy/java-content-parameter-api</projectId>
+                <projectId>microfocus-idol/java-content-parameter-api</projectId>
                 <ribbonOrientation>right</ribbonOrientation>
                 <ribbonColor>gray</ribbonColor>
             </gitHub>

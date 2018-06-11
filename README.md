@@ -1,14 +1,14 @@
-# HP Autonomy Content Parameter API
+# Micro Focus IDOL Autonomy Content Parameter API
 
 API for representing aspects of IDOL's Content server, including FieldText and document References
 
-[![Build Status](https://travis-ci.org/hpe-idol/java-content-parameter-api.svg?branch=master)](https://travis-ci.org/hpe-idol/java-content-parameter-api)
+[![Build Status](https://travis-ci.org/microfocus-idol/java-content-parameter-api.svg?branch=master)](https://travis-ci.org/microfocus-idol/java-content-parameter-api)
 
-Information can be found on the project homepage [here](http://hpe-idol.github.io/java-content-parameter-api)
+Information can be found on the project homepage [here](http://microfocus-idol.github.io/java-content-parameter-api)
 
 ## Usage
 
-HPE Content Parameter API is available from the central Maven repository.
+Micro Focus IDOL Content Parameter API is available from the central Maven repository.
 
     <dependency>
         <groupId>com.hp.autonomy.aci.content</groupId>
@@ -19,6 +19,7 @@ HPE Content Parameter API is available from the central Maven repository.
 ## License
 Copyright 2014-2015 Hewlett-Packard Development Company, L.P.
 Copyright 2015-2017 Hewlett Packard Enterprise Development LP
+Copyright 2017-2018 Micro Focus International plc.
 
 Licensed under the MIT License (the "License"); you may not use this project except in compliance with the License.
 
