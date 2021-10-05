@@ -13,7 +13,7 @@
 
     <groupId>com.hp.autonomy.aci.content</groupId>
     <artifactId>content-parameter-api</artifactId>
-    <version>3.1.0-SNAPSHOT</version>
+    <version>3.0.3</version>
     <packaging>jar</packaging>
 
     <name>Content Parameter API</name>
@@ -142,7 +142,7 @@
         <dependency>
             <groupId>com.hp.autonomy.aci.client</groupId>
             <artifactId>aci-api</artifactId>
-            <version>5.0.1</version>
+            <version>12.10.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
