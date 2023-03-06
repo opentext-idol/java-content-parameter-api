@@ -1,4 +1,4 @@
-# Micro Focus IDOL Autonomy Content Parameter API
+# OpenText IDOL Autonomy Content Parameter API
 
 API for representing aspects of IDOL's Content server, including FieldText and document References
 
@@ -8,7 +8,7 @@ Information can be found on the project homepage [here](http://microfocus-idol.g
 
 ## Usage
 
-Micro Focus IDOL Content Parameter API is available from the central Maven repository.
+OpenText IDOL Content Parameter API is available from the central Maven repository.
 
     <dependency>
         <groupId>com.hp.autonomy.aci.content</groupId>
@@ -18,7 +18,7 @@ Micro Focus IDOL Content Parameter API is available from the central Maven repos
 
 ## License
 
-(c) Copyright 2014-2018 Micro Focus or one of its affiliates.
+(c) Copyright 2014-2018 OpenText or one of its affiliates.
 
 Licensed under the MIT License (the "License"); you may not use this project except in compliance with the License.
 

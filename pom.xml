@@ -24,8 +24,8 @@
     </description>
 
     <organization>
-        <name>Micro Focus</name>
-        <url>http://www.microfocus.com/</url>
+        <name>OpenText</name>
+        <url>https://www.opentext.com/</url>
     </organization>
 
     <licenses>
@@ -38,9 +38,6 @@
     <developers>
         <developer>
             <name>Tung Jin Chew</name>
-            <email>tung-jin.chew@microfocus.com</email>
-            <organization>Micro Focus</organization>
-            <organizationUrl>http://www.microfocus.com</organizationUrl>
         </developer>
         <developer>
             <name>Alex Scown</name>
