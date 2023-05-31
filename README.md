@@ -2,9 +2,7 @@
 
 API for representing aspects of IDOL's Content server, including FieldText and document References
 
-[![Build Status](https://travis-ci.org/microfocus-idol/java-content-parameter-api.svg?branch=master)](https://travis-ci.org/microfocus-idol/java-content-parameter-api)
-
-Information can be found on the project homepage [here](http://microfocus-idol.github.io/java-content-parameter-api)
+Information can be found on the project homepage [here](http://opentext-idol.github.io/java-content-parameter-api)
 
 ## Usage
 
@@ -18,7 +16,7 @@ OpenText IDOL Content Parameter API is available from the central Maven reposito
 
 ## License
 
-(c) Copyright 2014-2018 OpenText or one of its affiliates.
+Copyright 2014-2018 OpenText or one of its affiliates.
 
 Licensed under the MIT License (the "License"); you may not use this project except in compliance with the License.
 

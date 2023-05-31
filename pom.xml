@@ -57,14 +57,14 @@
     </contributors>
 
     <scm>
-        <connection>scm:git:git@github.com:microfocus-idol/java-content-parameter-api.git</connection>
-        <developerConnection>scm:git:git@github.com:microfocus-idol/java-content-parameter-api.git</developerConnection>
-        <url>git@github.com:microfocus-idol/java-content-parameter-api.git</url>
+        <connection>scm:git:git@github.com:opentext-idol/java-content-parameter-api.git</connection>
+        <developerConnection>scm:git:git@github.com:opentext-idol/java-content-parameter-api.git</developerConnection>
+        <url>git@github.com:opentext-idol/java-content-parameter-api.git</url>
     </scm>
 
     <issueManagement>
         <system>GitHub</system>
-        <url>https://github.com/microfocus-idol/java-content-parameter-api/issues</url>
+        <url>https://github.com/opentext-idol/java-content-parameter-api/issues</url>
     </issueManagement>
 
     <build>
