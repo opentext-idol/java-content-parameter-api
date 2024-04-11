@@ -22,7 +22,7 @@ package com.hp.autonomy.aci.content.identifier;
  * <pre>
  *    DocumentIdentifiers identifiers = ...;
  *
- *    AciParameters parameters = new AciParameters("query");
+ *    ActionParameters parameters = new ActionParameters("query");
  *    parameters.add("text", "*");
  *    parameters.add(identifiers.getDontMatchParameterName(), identifiers);
  * </pre>
@@ -32,7 +32,7 @@ package com.hp.autonomy.aci.content.identifier;
  * <pre>
  *    DocumentIdentifiers identifiers = ...;
  *
- *    AciParameters parameters = new AciParameters("getcontent");
+ *    ActionParameters parameters = new ActionParameters("getcontent");
  *    parameters.add(identifiers.getGetContentParameterName(), identifiers);
  * </pre>
  */
