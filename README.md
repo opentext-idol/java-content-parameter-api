@@ -11,7 +11,7 @@ OpenText IDOL Content Parameter API is available from the central Maven reposito
     <dependency>
         <groupId>com.hp.autonomy.aci.content</groupId>
         <artifactId>content-parameter-api</artifactId>
-        <version>4.1.0-SNAPSHOT</version>
+        <version>4.1.0</version>
     </dependency>
 
 ## License
