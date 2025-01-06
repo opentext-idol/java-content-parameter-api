@@ -20,7 +20,7 @@ package com.hp.autonomy.aci.content.identifier;
  * <pre>
  *    QueryIdentifiers identifiers = ...;
  *
- *    AciParameters parameters = new AciParameters("query");
+ *    ActionParameters parameters = new ActionParameters("query");
  *    parameters.add("text", "*");
  *    parameters.add(identifiers.getMatchParameterName(), identifiers);
  * </pre>
