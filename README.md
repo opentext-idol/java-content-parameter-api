@@ -8,12 +8,6 @@ Information can be found on the project homepage [here](http://opentext-idol.git
 
 OpenText IDOL Content Parameter API is available from the central Maven repository.
 
-    <dependency>
-        <groupId>com.hp.autonomy.aci.content</groupId>
-        <artifactId>content-parameter-api</artifactId>
-        <version>4.2.0-SNAPSHOT</version>
-    </dependency>
-
 ## License
 
 Copyright 2014-2018 OpenText or one of its affiliates.
