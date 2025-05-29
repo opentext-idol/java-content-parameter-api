@@ -84,6 +84,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.6.3</version>
                 <configuration>
                     <doclint>none</doclint>
                 </configuration>
@@ -127,7 +128,7 @@
         <dependency>
             <groupId>com.hp.autonomy.aci.client</groupId>
             <artifactId>aci-api</artifactId>
-            <version>25.2.0</version>
+            <version>25.3.0</version>
         </dependency>
         <dependency>
             <groupId>commons-lang</groupId>
