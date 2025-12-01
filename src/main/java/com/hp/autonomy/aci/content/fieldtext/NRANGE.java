@@ -1,7 +1,7 @@
 package com.hp.autonomy.aci.content.fieldtext;
 
 import com.hp.autonomy.aci.content.internal.InternalUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.Arrays;
 import java.util.Collections;

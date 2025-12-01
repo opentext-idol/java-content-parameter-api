@@ -113,7 +113,7 @@ public class FieldTextBuilderTest {
         assertEquals("hashCode()", match1AND2String.hashCode(), builder.hashCode());
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testConstructorException() {
         new FieldTextBuilder(null);
     }
@@ -163,12 +163,12 @@ public class FieldTextBuilderTest {
         assertFalse("isEmpty()", builder2.isEmpty());
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testANDBuilderANDNullException() {
         AND().AND(null);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testORBuilderANDNullException() {
         OR().AND(null);
     }
@@ -218,12 +218,12 @@ public class FieldTextBuilderTest {
         assertFalse("isEmpty()", builder2.isEmpty());
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testORBuilderORNullException() {
         OR().OR(null);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testANDBuilderORNullException() {
         AND().OR(null);
     }
@@ -270,17 +270,17 @@ public class FieldTextBuilderTest {
         assertFalse("isEmpty()", builder2.isEmpty());
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testANDBuilderXORNullException() {
         AND().XOR(null);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testORBuilderXORNullException() {
         OR().XOR(null);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testXORBuilderXORNullException() {
         XOR().XOR(null);
     }
@@ -654,7 +654,7 @@ public class FieldTextBuilderTest {
         assertEquals(1, builder.size());
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testFromNullException() {
         FieldTextBuilder.from(null);
     }

@@ -71,12 +71,12 @@ public class SpecifierTest {
         new Specifier("OPERATOR", "  ");
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testConstructorNullIterableValues() {
         new Specifier("OPERATOR", "A", (Iterable<String>)null);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testConstructorNullArrayValues() {
         new Specifier("OPERATOR", "A", (String[])null);
     }

@@ -14,8 +14,8 @@
 
 package com.hp.autonomy.aci.content.printfields;
 
-import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.Validate;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Validate;
 
 import java.util.Arrays;
 import java.util.Iterator;

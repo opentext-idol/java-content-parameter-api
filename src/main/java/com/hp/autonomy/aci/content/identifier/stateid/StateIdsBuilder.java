@@ -13,7 +13,7 @@
  */
 package com.hp.autonomy.aci.content.identifier.stateid;
 
-import org.apache.commons.lang.Validate;
+import org.apache.commons.lang3.Validate;
 
 import java.util.Arrays;
 import java.util.Collections;

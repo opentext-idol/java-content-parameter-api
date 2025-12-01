@@ -86,7 +86,7 @@ public class PrintFieldsTest {
         assertEquals(2, printFields.size());
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testFromNullException() {
         PrintFields.from(null);
     }

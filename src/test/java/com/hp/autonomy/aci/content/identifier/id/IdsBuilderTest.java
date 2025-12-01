@@ -92,12 +92,12 @@ public class IdsBuilderTest {
         new IdsBuilder(1, 2, 0, 4);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testIterableConstructorException1() {
         new IdsBuilder((Iterable<?>)null);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testIterableConstructorException2() {
         new IdsBuilder(Arrays.asList(id1, null));
     }
@@ -177,12 +177,12 @@ public class IdsBuilderTest {
         assertFalse(builder.isEmpty());
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testAppendIterableException1() {
         new IdsBuilder().append((Iterable<?>)null);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testAppendIterableException2() {
         new IdsBuilder().append(Arrays.asList(id1, null));
     }
@@ -225,7 +225,7 @@ public class IdsBuilderTest {
         assertEquals(1, builder.size());
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testFromNullException() {
         IdsBuilder.from(null);
     }

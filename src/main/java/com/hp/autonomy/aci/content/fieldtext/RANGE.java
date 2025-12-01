@@ -14,7 +14,7 @@
 
 package com.hp.autonomy.aci.content.fieldtext;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;

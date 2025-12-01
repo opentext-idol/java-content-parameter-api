@@ -70,12 +70,12 @@ public class FieldTextWrapperTest {
         assertEquals("MATCH{Value}:FIELD", matchAndEmpty.toString());
     }
             
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testNullFieldTextException() {
         new FieldTextWrapper(null);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testNullObjectException() {
         new FieldTextWrapper((Object)null);
     }
@@ -90,7 +90,7 @@ public class FieldTextWrapperTest {
         });
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testNullToStringCopyConstruction() {
         new FieldTextWrapper(new AbstractFieldText() {
             @Override

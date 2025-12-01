@@ -14,7 +14,7 @@
 
 package com.hp.autonomy.aci.content.fieldtext;
 
-import org.apache.commons.lang.Validate;
+import org.apache.commons.lang3.Validate;
 
 /**
  * The {@code FieldTextWrapper} class makes an immutable copy of another {@code FieldText} object. Though the classes

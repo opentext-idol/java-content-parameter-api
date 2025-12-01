@@ -87,7 +87,7 @@ public class StateIdsBuilderTest {
         assertEquals(1, builder.size());
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testFromNullException() {
         StateIdsBuilder.from(null);
     }

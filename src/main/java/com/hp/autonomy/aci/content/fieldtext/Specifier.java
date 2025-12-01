@@ -15,8 +15,8 @@
 package com.hp.autonomy.aci.content.fieldtext;
 
 import com.autonomy.aci.client.util.AciURLCodec;
-import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.Validate;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Validate;
 
 import java.util.ArrayList;
 import java.util.Arrays;

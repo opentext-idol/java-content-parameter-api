@@ -15,8 +15,8 @@
 package com.hp.autonomy.aci.content.database;
 
 import com.hp.autonomy.aci.content.identifier.QueryIdentifiers;
-import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.Validate;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Validate;
 
 import java.util.Arrays;
 import java.util.Collections;

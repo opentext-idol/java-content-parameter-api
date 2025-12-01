@@ -14,7 +14,7 @@
 
 package com.hp.autonomy.aci.content.identifier.stateid;
 
-import org.apache.commons.lang.Validate;
+import org.apache.commons.lang3.Validate;
 
 /**
  * Range is a simple implementation of {@link StateRange} that only allows for a single continuous range. It also

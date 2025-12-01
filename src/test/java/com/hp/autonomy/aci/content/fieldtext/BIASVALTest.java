@@ -117,12 +117,12 @@ public class BIASVALTest {
         new BIASVAL((String)null, "VALUE", 11);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testStringStringNumberNullValueException() {
         new BIASVAL("ns:field", null, (byte)11);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testStringStringNumberNullBiasException() {
         new BIASVAL("ns:field", "VALUE", null);
     }
@@ -213,12 +213,12 @@ public class BIASVALTest {
         new BIASVAL((String[])null, "VALUE", 11);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testArrayStringNumberNullValueException() {
         new BIASVAL(new String[]{"FIELD1", "FIELD2", "ns:field"}, null, (byte)11);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testArrayStringNumberNullBiasExceptionException() {
         new BIASVAL(new String[]{"FIELD1", "FIELD2", "ns:field"}, "VALUE", null);
     }
@@ -304,17 +304,17 @@ public class BIASVALTest {
         assertEquals("Iterable<String>, String, BigDecimal - getFields", Arrays.asList("FIELD1", "FIELD2", "ns:field"), biasVal.getFields());
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testIterableStringNumberNullFieldsException() {
         new BIASVAL((Iterable<String>)null, "VALUE", 11);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testIterableStringNumberNullValueException() {
         new BIASVAL(Arrays.asList("FIELD1", "FIELD2", "ns:field"), null, (byte)11);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testIterableStringNumberNullBiasException() {
         new BIASVAL(Arrays.asList("FIELD1", "FIELD2", "ns:field"), "VALUE", null);
     }

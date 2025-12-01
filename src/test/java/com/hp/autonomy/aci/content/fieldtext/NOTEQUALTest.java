@@ -214,7 +214,7 @@ public class NOTEQUALTest {
         new NOTEQUAL(new String[]{null}, 1);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testNullException4() {
         new NOTEQUAL((Iterable<String>)null, 1);
     }
@@ -224,27 +224,27 @@ public class NOTEQUALTest {
         new NOTEQUAL(Arrays.asList("field", null), 1);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testNullException6() {
         new NOTEQUAL("field", (Integer)null);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testNullException7() {
         new NOTEQUAL("field", 7, (Integer)null);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testNullException8() {
         new NOTEQUAL("field", (int[])null);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testNullException9() {
         new NOTEQUAL("field", (Iterable<Number>)null);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testNullException10() {
         new NOTEQUAL("field", Arrays.asList(1, null));
     }

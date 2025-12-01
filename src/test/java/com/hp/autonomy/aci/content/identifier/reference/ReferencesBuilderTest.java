@@ -81,7 +81,7 @@ public class ReferencesBuilderTest {
         assertEquals("ref3", iterator.next().toString());
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testStringVarargsConstructorNullStringException() {
         new ReferencesBuilder("ref1", null);
     }
@@ -107,7 +107,7 @@ public class ReferencesBuilderTest {
         assertEquals(5, builder.size());
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testAppendException1() {
         new ReferencesBuilder().append("ref1", null);
     }
@@ -155,7 +155,7 @@ public class ReferencesBuilderTest {
         assertEquals(1, builder.size());
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testFromNullException() {
         ReferencesBuilder.from(null);
     }

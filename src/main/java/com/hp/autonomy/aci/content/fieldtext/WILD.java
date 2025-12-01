@@ -15,7 +15,7 @@
 package com.hp.autonomy.aci.content.fieldtext;
 
 import com.hp.autonomy.aci.content.internal.InternalUtils;
-import org.apache.commons.lang.Validate;
+import org.apache.commons.lang3.Validate;
 
 import java.util.Arrays;
 import java.util.Collections;

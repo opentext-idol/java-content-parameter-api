@@ -14,7 +14,7 @@
 
 package com.hp.autonomy.aci.content.fieldtext;
 
-import org.apache.commons.lang.Validate;
+import org.apache.commons.lang3.Validate;
 
 import static com.hp.autonomy.aci.content.fieldtext.FieldTexts.MATCHNOTHING;
 

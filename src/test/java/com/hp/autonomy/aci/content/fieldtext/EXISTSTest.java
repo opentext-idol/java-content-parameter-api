@@ -77,7 +77,7 @@ public class EXISTSTest {
         new EXISTS(new String[]{null});
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testNullException4() {
         new EXISTS((Iterable<String>)null);
     }

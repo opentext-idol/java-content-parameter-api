@@ -212,7 +212,7 @@ public class EQUALALLTest {
         new EQUALALL(new String[]{null}, 1);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testNullException4() {
         new EQUALALL((Iterable<String>)null, 1);
     }
@@ -222,27 +222,27 @@ public class EQUALALLTest {
         new EQUALALL(Arrays.asList("field", null), 1);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testNullException6() {
         new EQUALALL("field", (Integer)null);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testNullException7() {
         new EQUALALL("field", 7, (Integer)null);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testNullException8() {
         new EQUALALL("field", (int[])null);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testNullException9() {
         new EQUALALL("field", (Iterable<Number>)null);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testNullException10() {
         new EQUALALL("field", Arrays.asList(1, null));
     }

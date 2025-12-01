@@ -119,7 +119,7 @@ public class MATCHRECURSETest {
         new MATCHRECURSE((String)null, "VALUE", 11);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testStringStringNumberNullValueException() {
         new MATCHRECURSE("ns:field", null, 11);
     }
@@ -220,7 +220,7 @@ public class MATCHRECURSETest {
         new MATCHRECURSE((String[])null, "VALUE", 11);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testArrayStringNumberNullValueException() {
         new MATCHRECURSE(new String[]{"FIELD1", "FIELD2", "ns:field"}, null, 11);
     }
@@ -316,12 +316,12 @@ public class MATCHRECURSETest {
         assertEquals("Iterable<String>, String, BigDecimal - getFields", Arrays.asList("FIELD1", "FIELD2", "ns:field"), matchRecurse.getFields());
     }
     
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testIterableStringNumberNullFieldsException() {
         new MATCHRECURSE((Iterable<String>)null, "VALUE", 11);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testIterableStringNumberNullValueException() {
         new MATCHRECURSE(fieldsIterable, null, 11);
     }

@@ -78,7 +78,7 @@ public class EMPTYTest {
         new EMPTY(new String[]{null});
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testNullException4() {
         new EMPTY((Iterable<String>)null);
     }

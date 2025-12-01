@@ -214,7 +214,7 @@ public class EQUALTest {
         new EQUAL(new String[]{null}, 1);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testNullException4() {
         new EQUAL((Iterable<String>)null, 1);
     }
@@ -224,27 +224,27 @@ public class EQUALTest {
         new EQUAL(Arrays.asList("field", null), 1);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testNullException6() {
         new EQUAL("field", (Integer)null);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testNullException7() {
         new EQUAL("field", 7, (Integer)null);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testNullException8() {
         new EQUAL("field", (int[])null);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testNullException9() {
         new EQUAL("field", (Iterable<Number>)null);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testNullException10() {
         new EQUAL("field", Arrays.asList(1, null));
     }

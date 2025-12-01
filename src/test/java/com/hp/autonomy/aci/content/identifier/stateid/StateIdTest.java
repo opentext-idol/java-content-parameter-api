@@ -131,7 +131,7 @@ public class StateIdTest {
         assertTrue(range.isEmpty());
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testStringRangeConstructorNullException() {
         new StateId("ABC-12", null);
     }
@@ -168,7 +168,7 @@ public class StateIdTest {
         });
     }
     
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testStringRangeConstructorInvalidRangeException3() {
         // This implementation of StateRange violates the contract of toString()
         new StateId("ABC-12", new AbstractStateRange() {
@@ -412,7 +412,7 @@ public class StateIdTest {
         new StateId("XYZ-12", 5).append(" ", Range.first(17));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testAppendStringRangeNullRangeException() {
         new StateId("XYZ-12", 5).append("ABC-34", null);
     }
@@ -425,12 +425,12 @@ public class StateIdTest {
         assertEquals(4, stateIds.size());
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testAppendIterableNullIterable() {
         new StateId("XYZ-12", 5).append((Iterable<?>)null);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testAppendIterableNullEntry() {
         new StateId("XYZ-12", 5).append(Arrays.asList("ABC-5", null));
     }

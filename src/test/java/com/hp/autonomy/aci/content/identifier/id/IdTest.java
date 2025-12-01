@@ -151,12 +151,12 @@ public class IdTest {
         new Id(3).append(Arrays.asList(id1, 0));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testAppendIterableException2() {
         new Id(3).append((Iterable<?>)null);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testAppendIterableException3() {
         new Id(3).append(Arrays.asList(id1, null));
     }

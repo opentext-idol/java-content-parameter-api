@@ -266,7 +266,7 @@ public class LESSTest {
         new LESS(new String[]{null}, 7);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testNullException4() {
         new LESS((Iterable<String>)null, 7);
     }
@@ -276,7 +276,7 @@ public class LESSTest {
         new LESS(Arrays.asList("title", null), 7);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testNullException6() {
         new LESS("title", null);
     }

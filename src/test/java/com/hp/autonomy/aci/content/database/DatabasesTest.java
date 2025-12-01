@@ -149,7 +149,7 @@ public class DatabasesTest {
         assertEquals(2, databases.size());
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testFromNullException() {
         Databases.from(null);
     }

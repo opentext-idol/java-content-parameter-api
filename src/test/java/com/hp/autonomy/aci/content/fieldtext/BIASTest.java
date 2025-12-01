@@ -45,17 +45,17 @@ public class BIASTest {
         new BIAS((String)null, 12.0f, (byte)1, 10.3);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testStringNumberNumberNumberNullOptimumException() {
         new BIAS("field1", null, (byte)1, 10.3);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testStringNumberNumberNumberNullRangeException() {
         new BIAS("field1", 12.0f, null, 10.3);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testStringNumberNumberNumberNullBiasException() {
         new BIAS("field1", 12.0f, (byte)1, null);
     }
@@ -80,17 +80,17 @@ public class BIASTest {
         new BIAS((String[])null, new Integer(12), new BigDecimal("1"), new Float(10.3));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testArrayNumberNumberNumberNullOptimumException() {
         new BIAS(new String[]{"ns:field", "FIELD1"}, null, new BigDecimal("1"), new Float(10.3));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testArrayNumberNumberNumberNullRangeException() {
         new BIAS(new String[]{"ns:field", "FIELD1"}, new Integer(12), null, new Float(10.3));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testArrayNumberNumberNumberNullBiasException() {
         new BIAS(new String[]{"ns:field", "FIELD1"}, new Integer(12), new BigDecimal("1"), null);
     }
@@ -110,22 +110,22 @@ public class BIASTest {
         assertEquals("getBias", 10.3, bias.getBias(), 0);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testIterableNumberNumberNumberNullIterableException() {
         new BIAS((Iterable<String>)null, new Long(12), 1.0, new Double(10.3));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testIterableNumberNumberNumberNullOptimumException() {
         new BIAS(Arrays.asList("ns:field", "FIELD1"), null, 1.0, new Double(10.3));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testIterableNumberNumberNumberNullRangeException() {
         new BIAS(Arrays.asList("ns:field", "FIELD1"), new Long(12), null, new Double(10.3));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testIterableNumberNumberNumberNullBiasException() {
         new BIAS(Arrays.asList("ns:field", "FIELD1"), new Long(12), 1.0, null);
     }
